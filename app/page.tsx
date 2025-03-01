@@ -5,22 +5,31 @@ import InteractiveMap from './components/InteractiveMap';
 import WeatherWidget from './components/WeatherWidget';
 import { FiMapPin, FiClock, FiCalendar, FiUsers, FiPhone, FiMail, FiFacebook, FiTwitter, FiInstagram } from 'react-icons/fi';
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 }
+  transition: { duration: 0.3 }
 };
 
 const staggerContainer = {
   animate: {
     transition: {
-      staggerChildren: 0.1
+      staggerChildren: 0.05
     }
   }
 };
 
 export default function Home() {
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      fadeInUp.transition.duration = 0;
+      staggerContainer.animate.transition.staggerChildren = 0;
+    }
+  }, []);
+
   return (
     <main className="flex-grow">
       {/* Hero Section with Video Background */}
@@ -30,7 +39,7 @@ export default function Home() {
           loop
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source 
@@ -119,22 +128,22 @@ export default function Home() {
               variants={staggerContainer}
               initial="initial"
               animate="animate"
-              className="flex flex-col gap-3 sm:gap-4 justify-center items-stretch sm:flex-row max-w-xl mx-auto px-4"
+              className="flex flex-col gap-3 sm:gap-4 justify-center items-center sm:flex-row max-w-md mx-auto px-4"
             >
               <motion.a 
                 variants={fadeInUp}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 href="/places" 
-                className="group w-full sm:w-auto flex-1 px-6 py-4 bg-gradient-to-r from-green-600 via-green-500 to-green-600 text-white rounded-xl font-medium hover:shadow-lg hover:shadow-green-500/20 transition-all duration-300 text-center relative overflow-hidden"
+                className="group w-full sm:w-auto flex-1 px-3 py-2 bg-gradient-to-r from-green-600 via-green-500 to-green-600 text-white rounded-md font-medium hover:shadow-lg hover:shadow-green-500/20 transition-all duration-300 text-center relative overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
                 <div className="flex flex-col items-center justify-center relative z-10">
-                  <span className="flex items-center text-base font-semibold tracking-wide">
+                  <span className="flex items-center text-xs font-semibold tracking-wide">
                     Keşfet
-                    <span className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform duration-500">→</span>
+                    <span className="inline-block ml-1.5 transform group-hover:translate-x-1 transition-transform duration-500">→</span>
                   </span>
-                  <span className="text-sm text-white/90 mt-1">50+ Tarihi Mekan</span>
+                  <span className="text-[10px] text-white/90">50+ Tarihi Mekan</span>
                 </div>
               </motion.a>
               <motion.a 
@@ -142,15 +151,15 @@ export default function Home() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 href="/events" 
-                className="group w-full sm:w-auto flex-1 px-6 py-4 bg-white/10 text-white rounded-xl font-medium backdrop-blur-md transition-all duration-300 border border-white/30 text-center relative overflow-hidden hover:bg-white/20"
+                className="group w-full sm:w-auto flex-1 px-3 py-2 bg-white/10 text-white rounded-md font-medium backdrop-blur-md transition-all duration-300 border border-white/30 text-center relative overflow-hidden hover:bg-white/20"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
                 <div className="flex flex-col items-center justify-center relative z-10">
-                  <span className="flex items-center text-base font-semibold tracking-wide">
+                  <span className="flex items-center text-xs font-semibold tracking-wide">
                     Etkinlikler
-                    <span className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform duration-500">→</span>
+                    <span className="inline-block ml-1.5 transform group-hover:translate-x-1 transition-transform duration-500">→</span>
                   </span>
-                  <span className="text-sm text-white/90 mt-1">Yıl Boyu Aktiviteler</span>
+                  <span className="text-[10px] text-white/90">Yıl Boyu Aktiviteler</span>
                 </div>
               </motion.a>
             </motion.div>
@@ -161,38 +170,40 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.5 }}
-            className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 w-full max-w-5xl px-4"
+            className="absolute bottom-4 sm:bottom-8 w-full px-4"
           >
-            <motion.div 
-              variants={staggerContainer}
-              initial="initial"
-              animate="animate"
-              className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4"
-            >
-              {[
-                { number: "50+", text: "Tarihi Mekan" },
-                { number: "100+", text: "Restoran" },
-                { number: "20+", text: "Otel" },
-                { number: "30+", text: "Etkinlik/Yıl" }
-              ].map((stat, index) => (
-                <motion.div
-                  key={index}
-                  variants={fadeInUp}
-                  whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
-                  className="text-center bg-white/5 backdrop-blur-sm rounded-lg p-3 sm:p-4"
-                >
-                  <motion.div 
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ delay: 0.8 + index * 0.1, type: "spring" }}
-                    className="text-3xl sm:text-4xl font-bold text-green-400 mb-1 sm:mb-2"
+            <div className="max-w-4xl mx-auto">
+              <motion.div 
+                variants={staggerContainer}
+                initial="initial"
+                animate="animate"
+                className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4"
+              >
+                {[
+                  { number: "50+", text: "Tarihi Mekan" },
+                  { number: "100+", text: "Restoran" },
+                  { number: "20+", text: "Otel" },
+                  { number: "30+", text: "Etkinlik/Yıl" }
+                ].map((stat, index) => (
+                  <motion.div
+                    key={index}
+                    variants={fadeInUp}
+                    whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
+                    className="text-center bg-white/5 backdrop-blur-sm rounded-lg p-3 sm:p-4"
                   >
-                    {stat.number}
+                    <motion.div 
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ delay: 0.8 + index * 0.1, type: "spring" }}
+                      className="text-4xl sm:text-5xl font-bold text-green-400 mb-1 sm:mb-2"
+                    >
+                      {stat.number}
+                    </motion.div>
+                    <div className="text-base sm:text-lg text-white/90">{stat.text}</div>
                   </motion.div>
-                  <div className="text-sm sm:text-base text-white/90">{stat.text}</div>
-                </motion.div>
-              ))}
-            </motion.div>
+                ))}
+              </motion.div>
+            </div>
           </motion.div>
         </motion.div>
       </section>
@@ -257,6 +268,9 @@ export default function Home() {
               <motion.div
                 key={index}
                 variants={fadeInUp}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true, margin: "50px" }}
                 whileHover={{ y: -5, scale: 1.02 }}
                 className="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300"
               >
@@ -268,6 +282,7 @@ export default function Home() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
+                    quality={75}
                   />
                   <motion.div 
                     initial={{ opacity: 0 }}
@@ -346,6 +361,9 @@ export default function Home() {
               <motion.div
                 key={index}
                 variants={fadeInUp}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true, margin: "50px" }}
                 whileHover={{ y: -5, scale: 1.02 }}
                 className="group relative overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300"
               >
@@ -357,6 +375,7 @@ export default function Home() {
                     height={400}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     loading="lazy"
+                    quality={75}
                   />
                 </div>
                 <motion.div 
@@ -393,6 +412,8 @@ export default function Home() {
                   width={800}
                   height={400}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                  quality={75}
                 />
               </div>
               <div className="p-6">
@@ -412,6 +433,8 @@ export default function Home() {
                   width={800}
                   height={400}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                  quality={75}
                 />
               </div>
               <div className="p-6">
@@ -482,10 +505,10 @@ export default function Home() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="space-y-4">
                         <div className="flex items-start gap-4 p-6 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors">
-                          <span className="text-4xl">🏛️</span>
+                          <span className="text-5xl">🏛️</span>
                           <div>
-                            <h4 className="font-semibold text-gray-900 mb-3">Tarihi Bölgeler</h4>
-                            <ul className="text-sm text-gray-600 space-y-2">
+                            <h4 className="font-semibold text-gray-900 mb-3 text-lg">Tarihi Bölgeler</h4>
+                            <ul className="text-base text-gray-600 space-y-2">
                               <li>• Anastasios Surları</li>
                               <li>• İnceğiz Mağaraları</li>
                               <li>• Kaleiçi Mahallesi</li>
@@ -493,10 +516,10 @@ export default function Home() {
                           </div>
                         </div>
                         <div className="flex items-start gap-4 p-6 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors">
-                          <span className="text-4xl">🌊</span>
+                          <span className="text-5xl">🌊</span>
                           <div>
-                            <h4 className="font-semibold text-gray-900 mb-3">Doğal Alanlar</h4>
-                            <ul className="text-sm text-gray-600 space-y-2">
+                            <h4 className="font-semibold text-gray-900 mb-3 text-lg">Doğal Alanlar</h4>
+                            <ul className="text-base text-gray-600 space-y-2">
                               <li>• Durusu (Terkos) Gölü</li>
                               <li>• Çatalca Ormanları</li>
                               <li>• Karadeniz Kıyısı</li>
@@ -506,10 +529,10 @@ export default function Home() {
                       </div>
                       <div className="space-y-4">
                         <div className="flex items-start gap-4 p-6 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors">
-                          <span className="text-4xl">🏘️</span>
+                          <span className="text-5xl">🏘️</span>
                           <div>
-                            <h4 className="font-semibold text-gray-900 mb-3">Köyler</h4>
-                            <ul className="text-sm text-gray-600 space-y-2">
+                            <h4 className="font-semibold text-gray-900 mb-3 text-lg">Köyler</h4>
+                            <ul className="text-base text-gray-600 space-y-2">
                               <li>• Belgrat Köyü</li>
                               <li>• İnceğiz Köyü</li>
                               <li>• Durusu Köyü</li>
@@ -517,10 +540,10 @@ export default function Home() {
                           </div>
                         </div>
                         <div className="flex items-start gap-4 p-6 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors">
-                          <span className="text-4xl">🚗</span>
+                          <span className="text-5xl">🚗</span>
                           <div>
-                            <h4 className="font-semibold text-gray-900 mb-3">Ulaşım</h4>
-                            <ul className="text-sm text-gray-600 space-y-2">
+                            <h4 className="font-semibold text-gray-900 mb-3 text-lg">Ulaşım</h4>
+                            <ul className="text-base text-gray-600 space-y-2">
                               <li>• İstanbul merkeze 60 km</li>
                               <li>• Düzenli otobüs seferleri</li>
                               <li>• E6 karayolu bağlantısı</li>
@@ -548,31 +571,31 @@ export default function Home() {
                   {/* Seasonal Cards */}
                   <div className="grid grid-cols-1 gap-4">
                     <div className="flex items-start gap-4 p-4 rounded-lg bg-green-50/50 hover:bg-green-50 transition-colors">
-                      <span className="text-4xl">🌸</span>
+                      <span className="text-5xl">🌸</span>
                       <div>
-                        <p className="font-semibold text-gray-900 mb-2">İlkbahar</p>
-                        <p className="text-sm text-gray-600">Bahar festivalleri ve doğa yürüyüşleri için ideal</p>
+                        <p className="font-semibold text-gray-900 mb-2 text-lg">İlkbahar</p>
+                        <p className="text-base text-gray-600">Bahar festivalleri ve doğa yürüyüşleri için ideal</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-4 p-4 rounded-lg bg-yellow-50/50 hover:bg-yellow-50 transition-colors">
-                      <span className="text-4xl">☀️</span>
+                      <span className="text-5xl">☀️</span>
                       <div>
-                        <p className="font-semibold text-gray-900 mb-2">Yaz</p>
-                        <p className="text-sm text-gray-600">Sahil aktiviteleri ve köy pazarları</p>
+                        <p className="font-semibold text-gray-900 mb-2 text-lg">Yaz</p>
+                        <p className="text-base text-gray-600">Sahil aktiviteleri ve köy pazarları</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-4 p-4 rounded-lg bg-orange-50/50 hover:bg-orange-50 transition-colors">
-                      <span className="text-4xl">🍂</span>
+                      <span className="text-5xl">🍂</span>
                       <div>
-                        <p className="font-semibold text-gray-900 mb-2">Sonbahar</p>
-                        <p className="text-sm text-gray-600">Fotoğrafçılık ve tarih turları için en iyi zaman</p>
+                        <p className="font-semibold text-gray-900 mb-2 text-lg">Sonbahar</p>
+                        <p className="text-base text-gray-600">Fotoğrafçılık ve tarih turları için en iyi zaman</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-4 p-4 rounded-lg bg-blue-50/50 hover:bg-blue-50 transition-colors">
-                      <span className="text-4xl">❄️</span>
+                      <span className="text-5xl">❄️</span>
                       <div>
-                        <p className="font-semibold text-gray-900 mb-2">Kış</p>
-                        <p className="text-sm text-gray-600">Kış sporları ve sıcak köy kahvaltıları</p>
+                        <p className="font-semibold text-gray-900 mb-2 text-lg">Kış</p>
+                        <p className="text-base text-gray-600">Kış sporları ve sıcak köy kahvaltıları</p>
                       </div>
                     </div>
                   </div>

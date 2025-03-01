@@ -12,8 +12,8 @@ export default function Logo() {
       >
         <div className="relative">
           <svg
-            width="40"
-            height="40"
+            width="48"
+            height="48"
             viewBox="0 0 40 40"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -38,11 +38,11 @@ export default function Logo() {
             />
           </svg>
         </div>
-        <div className="flex flex-col">
-          <span className="text-3xl md:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-green-700 tracking-tight">
+        <div className="flex flex-col items-center">
+          <span className="text-2xl md:text-3xl font-black bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-green-700 tracking-tight leading-none font-['Cormorant_Garamond']">
             Çatalca
           </span>
-          <span className="text-base md:text-lg text-green-700 font-semibold -mt-1 tracking-wide">
+          <span className="text-lg md:text-xl text-green-700 font-bold tracking-wider leading-tight -mt-0.5 font-['Cormorant_Garamond']">
             Rehberi
           </span>
         </div>
