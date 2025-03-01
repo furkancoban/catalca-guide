@@ -77,8 +77,6 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  // Configure Netlify-specific settings
-  target: 'serverless',
   // Optimize build performance
   onDemandEntries: {
     maxInactiveAge: 60 * 60 * 1000,
