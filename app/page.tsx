@@ -1,7 +1,24 @@
+'use client';
+
 import Image from 'next/image';
 import InteractiveMap from './components/InteractiveMap';
 import WeatherWidget from './components/WeatherWidget';
 import { FiMapPin, FiClock, FiCalendar, FiUsers, FiPhone, FiMail, FiFacebook, FiTwitter, FiInstagram } from 'react-icons/fi';
+import { motion } from 'framer-motion';
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 }
+};
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
 
 export default function Home() {
   return (
@@ -25,46 +42,91 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-green-950/90 via-green-900/50 to-green-950/90"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,0,0,0),rgba(0,0,0,0.4))]"></div>
         </div>
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-white px-4">
-          <div className="animate-fadeIn max-w-6xl mx-auto w-full">
-            <div className="text-center">
-              <div className="inline-block mb-4 sm:mb-6 px-4 sm:px-6 py-2 border-2 border-green-500/30 rounded-full bg-white/5 backdrop-blur-sm">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="relative z-10 h-full flex flex-col items-center justify-center text-white px-4"
+        >
+          <div className="max-w-6xl mx-auto w-full">
+            <motion.div 
+              variants={staggerContainer}
+              initial="initial"
+              animate="animate"
+              className="text-center"
+            >
+              <motion.div 
+                variants={fadeInUp}
+                className="inline-block mb-4 sm:mb-6 px-4 sm:px-6 py-2 border-2 border-green-500/30 rounded-full bg-white/5 backdrop-blur-sm"
+              >
                 <span className="text-green-400 text-sm sm:text-base font-medium tracking-wide">İstanbul&apos;un Tarihi Kapısı</span>
-              </div>
-              <h1 className="mb-6 sm:mb-8">
-                <span className="block text-5xl sm:text-7xl md:text-8xl font-bold mb-2 tracking-tight leading-none animate-fade-in-up">
+              </motion.div>
+              <motion.h1 
+                variants={fadeInUp}
+                className="mb-6 sm:mb-8"
+              >
+                <motion.span 
+                  variants={fadeInUp}
+                  className="block text-5xl sm:text-7xl md:text-8xl font-bold mb-2 tracking-tight leading-none"
+                >
                   Çatalca&apos;ya
-                </span>
-                <span className="block text-4xl sm:text-6xl md:text-7xl font-light bg-gradient-to-r from-green-300 via-white to-green-300 bg-clip-text text-transparent animate-fade-in-up-delay">
+                </motion.span>
+                <motion.span 
+                  variants={fadeInUp}
+                  className="block text-4xl sm:text-6xl md:text-7xl font-light bg-gradient-to-r from-green-300 via-white to-green-300 bg-clip-text text-transparent"
+                >
                   Hoş Geldiniz
-                </span>
-              </h1>
-              <div className="w-24 sm:w-32 h-1 bg-gradient-to-r from-green-500/50 via-green-400 to-green-500/50 mb-6 sm:mb-8 mx-auto rounded-full"></div>
-              <p className="text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto text-center leading-relaxed mb-8 sm:mb-12 font-light text-gray-200/90 animate-fade-in px-4">
+                </motion.span>
+              </motion.h1>
+              <motion.div 
+                variants={fadeInUp}
+                className="w-24 sm:w-32 h-1 bg-gradient-to-r from-green-500/50 via-green-400 to-green-500/50 mb-6 sm:mb-8 mx-auto rounded-full"
+              />
+              <motion.p 
+                variants={fadeInUp}
+                className="text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto text-center leading-relaxed mb-8 sm:mb-12 font-light text-gray-200/90 px-4"
+              >
                 Antik surlar, yeşil tepeler ve zengin kültürel mirasın<br className="hidden md:block" /> buluştuğu eşsiz bir deneyim
-              </p>
-            </div>
+              </motion.p>
+            </motion.div>
             
             {/* Quick Highlights */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-8 px-4 max-w-3xl mx-auto">
-              <div className="group flex items-center justify-center gap-3 bg-white/10 backdrop-blur-md px-4 sm:px-6 py-3 rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300">
-                <span className="text-2xl sm:text-3xl group-hover:scale-125 transition-transform duration-500">🏛️</span>
-                <span className="text-sm sm:text-base font-medium">2000+ Yıllık Tarih</span>
-              </div>
-              <div className="group flex items-center justify-center gap-3 bg-white/10 backdrop-blur-md px-4 sm:px-6 py-3 rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300">
-                <span className="text-2xl sm:text-3xl group-hover:scale-125 transition-transform duration-500">🌳</span>
-                <span className="text-sm sm:text-base font-medium">Doğal Güzellikler</span>
-              </div>
-              <div className="group flex items-center justify-center gap-3 bg-white/10 backdrop-blur-md px-4 sm:px-6 py-3 rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300">
-                <span className="text-2xl sm:text-3xl group-hover:scale-125 transition-transform duration-500">🎭</span>
-                <span className="text-sm sm:text-base font-medium">Zengin Kültür</span>
-              </div>
-            </div>
+            <motion.div 
+              variants={staggerContainer}
+              initial="initial"
+              animate="animate"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-8 px-4 max-w-3xl mx-auto"
+            >
+              {[
+                { emoji: "🏛️", text: "2000+ Yıllık Tarih" },
+                { emoji: "🌳", text: "Doğal Güzellikler" },
+                { emoji: "🎭", text: "Zengin Kültür" }
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  variants={fadeInUp}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group flex items-center justify-center gap-3 bg-white/10 backdrop-blur-md px-4 sm:px-6 py-3 rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300"
+                >
+                  <span className="text-2xl sm:text-3xl group-hover:scale-125 transition-transform duration-500">{item.emoji}</span>
+                  <span className="text-sm sm:text-base font-medium">{item.text}</span>
+                </motion.div>
+              ))}
+            </motion.div>
 
-            <div className="flex flex-col gap-3 sm:gap-4 justify-center items-stretch sm:flex-row max-w-xl mx-auto px-4">
-              <a 
+            <motion.div 
+              variants={staggerContainer}
+              initial="initial"
+              animate="animate"
+              className="flex flex-col gap-3 sm:gap-4 justify-center items-stretch sm:flex-row max-w-xl mx-auto px-4"
+            >
+              <motion.a 
+                variants={fadeInUp}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 href="/places" 
-                className="group w-full sm:w-auto flex-1 px-6 py-4 bg-gradient-to-r from-green-600 via-green-500 to-green-600 text-white rounded-xl font-medium hover:shadow-lg hover:shadow-green-500/20 active:scale-95 transition-all duration-300 text-center relative overflow-hidden"
+                className="group w-full sm:w-auto flex-1 px-6 py-4 bg-gradient-to-r from-green-600 via-green-500 to-green-600 text-white rounded-xl font-medium hover:shadow-lg hover:shadow-green-500/20 transition-all duration-300 text-center relative overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
                 <div className="flex flex-col items-center justify-center relative z-10">
@@ -74,10 +136,13 @@ export default function Home() {
                   </span>
                   <span className="text-sm text-white/90 mt-1">50+ Tarihi Mekan</span>
                 </div>
-              </a>
-              <a 
+              </motion.a>
+              <motion.a 
+                variants={fadeInUp}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 href="/events" 
-                className="group w-full sm:w-auto flex-1 px-6 py-4 bg-white/10 text-white rounded-xl font-medium backdrop-blur-md active:scale-95 transition-all duration-300 border border-white/30 text-center relative overflow-hidden hover:bg-white/20"
+                className="group w-full sm:w-auto flex-1 px-6 py-4 bg-white/10 text-white rounded-xl font-medium backdrop-blur-md transition-all duration-300 border border-white/30 text-center relative overflow-hidden hover:bg-white/20"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
                 <div className="flex flex-col items-center justify-center relative z-10">
@@ -87,43 +152,84 @@ export default function Home() {
                   </span>
                   <span className="text-sm text-white/90 mt-1">Yıl Boyu Aktiviteler</span>
                 </div>
-              </a>
-            </div>
+              </motion.a>
+            </motion.div>
           </div>
 
           {/* Floating Stats */}
-          <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 w-full max-w-5xl px-4">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
-              <div className="text-center bg-white/5 backdrop-blur-sm rounded-lg p-3 sm:p-4">
-                <div className="text-3xl sm:text-4xl font-bold text-green-400 mb-1 sm:mb-2">50+</div>
-                <div className="text-sm sm:text-base text-white/90">Tarihi Mekan</div>
-              </div>
-              <div className="text-center bg-white/5 backdrop-blur-sm rounded-lg p-3 sm:p-4">
-                <div className="text-3xl sm:text-4xl font-bold text-green-400 mb-1 sm:mb-2">100+</div>
-                <div className="text-sm sm:text-base text-white/90">Restoran</div>
-              </div>
-              <div className="text-center bg-white/5 backdrop-blur-sm rounded-lg p-3 sm:p-4">
-                <div className="text-3xl sm:text-4xl font-bold text-green-400 mb-1 sm:mb-2">20+</div>
-                <div className="text-sm sm:text-base text-white/90">Otel</div>
-              </div>
-              <div className="text-center bg-white/5 backdrop-blur-sm rounded-lg p-3 sm:p-4">
-                <div className="text-3xl sm:text-4xl font-bold text-green-400 mb-1 sm:mb-2">30+</div>
-                <div className="text-sm sm:text-base text-white/90">Etkinlik/Yıl</div>
-              </div>
-            </div>
-          </div>
-        </div>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+            className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 w-full max-w-5xl px-4"
+          >
+            <motion.div 
+              variants={staggerContainer}
+              initial="initial"
+              animate="animate"
+              className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4"
+            >
+              {[
+                { number: "50+", text: "Tarihi Mekan" },
+                { number: "100+", text: "Restoran" },
+                { number: "20+", text: "Otel" },
+                { number: "30+", text: "Etkinlik/Yıl" }
+              ].map((stat, index) => (
+                <motion.div
+                  key={index}
+                  variants={fadeInUp}
+                  whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
+                  className="text-center bg-white/5 backdrop-blur-sm rounded-lg p-3 sm:p-4"
+                >
+                  <motion.div 
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.8 + index * 0.1, type: "spring" }}
+                    className="text-3xl sm:text-4xl font-bold text-green-400 mb-1 sm:mb-2"
+                  >
+                    {stat.number}
+                  </motion.div>
+                  <div className="text-sm sm:text-base text-white/90">{stat.text}</div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* News Section */}
-      <section className="py-12 sm:py-16 bg-gray-50">
+      <motion.section 
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="py-12 sm:py-16 bg-gray-50"
+      >
         <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-8 sm:mb-12">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-8 sm:mb-12"
+          >
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Çatalca&apos;dan Haberler</h2>
-            <div className="w-20 sm:w-24 h-1 bg-green-500 mx-auto"></div>
-          </div>
+            <motion.div 
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="w-20 sm:w-24 h-1 bg-green-500 mx-auto"
+            />
+          </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          <motion.div 
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8"
+          >
             {/* News Cards */}
             {[
               {
@@ -148,7 +254,12 @@ export default function Home() {
                 description: "Belediye, çevre dostu projelere yeni yatırımlar yapıyor. Güneş enerjisi ve geri dönüşüm tesisleri planlanıyor."
               }
             ].map((news, index) => (
-              <div key={index} className="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 active:scale-[0.99]">
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300"
+              >
                 <div className="relative h-48 sm:h-56">
                   <Image
                     src={news.image}
@@ -158,9 +269,16 @@ export default function Home() {
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <motion.div 
+                    initial={{ opacity: 0 }}
+                    whileHover={{ opacity: 1 }}
+                    className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-300"
+                  />
                 </div>
-                <div className="p-4 sm:p-6">
+                <motion.div 
+                  variants={fadeInUp}
+                  className="p-4 sm:p-6"
+                >
                   <div className="flex items-center mb-3 sm:mb-4">
                     <span className="text-sm text-green-600 font-medium">{news.category}</span>
                     <span className="mx-2 text-gray-300">•</span>
@@ -168,22 +286,46 @@ export default function Home() {
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{news.title}</h3>
                   <p className="text-gray-600 text-sm sm:text-base mb-4 line-clamp-3">{news.description}</p>
-                  <a href="#" className="inline-flex items-center text-green-600 font-medium hover:text-green-700 transition-colors">
+                  <motion.a 
+                    whileHover={{ x: 5 }}
+                    href="#" 
+                    className="inline-flex items-center text-green-600 font-medium hover:text-green-700 transition-colors"
+                  >
                     Devamını Oku
                     <span className="ml-1 group-hover:translate-x-1 transition-transform duration-300">→</span>
-                  </a>
-                </div>
-              </div>
+                  </motion.a>
+                </motion.div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Featured Categories */}
-      <section className="py-12 sm:py-16 bg-white">
+      <motion.section 
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="py-12 sm:py-16 bg-white"
+      >
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-2xl sm:text-3xl font-semibold mb-8 sm:mb-12 text-center text-gray-900">Çatalca&apos;yı Keşfedin</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-2xl sm:text-3xl font-semibold mb-8 sm:mb-12 text-center text-gray-900"
+          >
+            Çatalca&apos;yı Keşfedin
+          </motion.h2>
+          <motion.div 
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8"
+          >
             {[
               {
                 image: "https://images.unsplash.com/photo-1533387520709-752d83de3630",
@@ -201,7 +343,12 @@ export default function Home() {
                 description: "Geleneksel festivaller, yerel lezzetler ve el sanatlarını keşfedin."
               }
             ].map((category, index) => (
-              <div key={index} className="group relative overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 active:scale-[0.98]">
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="group relative overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300"
+              >
                 <div className="h-56 sm:h-64 overflow-hidden">
                   <Image 
                     src={category.image}
@@ -212,18 +359,26 @@ export default function Home() {
                     loading="lazy"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                <motion.div 
+                  initial={{ opacity: 0.6 }}
+                  whileHover={{ opacity: 0.8 }}
+                  className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-opacity duration-300"
+                />
+                <motion.div 
+                  initial={{ y: 20, opacity: 0.8 }}
+                  whileHover={{ y: 0, opacity: 1 }}
+                  className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white transform transition-all duration-300"
+                >
                   <h3 className="text-lg sm:text-xl font-semibold mb-2">{category.title}</h3>
-                  <p className="text-sm text-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 line-clamp-2">
+                  <p className="text-sm text-gray-200 line-clamp-2">
                     {category.description}
                   </p>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Latest Updates Section */}
       <section className="py-16 bg-white">
