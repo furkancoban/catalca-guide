@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+const path = require('path');
+
 const nextConfig = {
   images: {
     remotePatterns: [
@@ -29,14 +31,16 @@ const nextConfig = {
   swcMinify: true,
   // Enable webpack caching
   webpack: (config, { dev, isServer }) => {
-    // Enable persistent caching
+    // Enable persistent caching with absolute path
     config.cache = {
       type: 'filesystem',
       buildDependencies: {
         config: [__filename],
       },
-      cacheDirectory: '.next/cache',
+      cacheDirectory: path.resolve(__dirname, '.next/cache/webpack'),
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+      name: isServer ? 'server' : 'client',
+      version: '1.0.0'
     }
 
     // Optimize production builds
