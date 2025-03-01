@@ -11,7 +11,8 @@ interface CardProps {
   imageAlt: string;
   details: React.ReactNode;
   location: string;
-  mapLocation: string;
+  latitude: number;
+  longitude: number;
 }
 
 export default function Card({
@@ -23,7 +24,8 @@ export default function Card({
   imageAlt,
   details,
   location,
-  mapLocation
+  latitude,
+  longitude
 }: CardProps) {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden h-[520px]">
@@ -51,8 +53,8 @@ export default function Card({
         <div className="space-y-2 text-gray-700">
           {details}
         </div>
-        <div className="absolute bottom-0 left-0 right-0">
-          <MapButtons name={title} location={mapLocation || location} />
+        <div className="absolute bottom-0 left-0 right-0 p-4">
+          <MapButtons latitude={latitude} longitude={longitude} address={location} />
         </div>
       </div>
     </div>
