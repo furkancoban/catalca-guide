@@ -24,8 +24,19 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="text-xl md:text-2xl font-bold text-green-600">
-              Çatalca Rehberi
+            <Link href="/" className="flex items-center gap-2">
+              <div className="relative w-8 h-8 md:w-10 md:h-10">
+                <div className="absolute inset-0 bg-gradient-to-br from-green-500 to-green-700 rounded-full"></div>
+                <div className="absolute inset-[2px] bg-white rounded-full flex items-center justify-center">
+                  <span className="text-green-600 text-lg md:text-xl font-bold">Ç</span>
+                </div>
+              </div>
+              <span className="text-lg md:text-xl font-bold text-green-600 hidden sm:block">
+                Çatalca Rehberi
+              </span>
+              <span className="text-lg font-bold text-green-600 sm:hidden">
+                Çatalca
+              </span>
             </Link>
           </div>
 

@@ -42,25 +42,25 @@ export default function Home() {
             </div>
             
             {/* Quick Highlights */}
-            <div className="flex flex-wrap justify-center gap-6 mb-12">
-              <div className="group flex items-center gap-4 bg-white/10 backdrop-blur-md px-8 py-4 rounded-full border border-white/20 hover:bg-white/20 transition-all duration-300 cursor-pointer">
-                <span className="text-3xl group-hover:scale-125 transition-transform duration-500">🏛️</span>
-                <span className="text-base font-medium tracking-wide">2000+ Yıllık Tarih</span>
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mb-8 px-4">
+              <div className="w-full sm:w-auto group flex items-center justify-center gap-3 bg-white/10 backdrop-blur-md px-6 py-3 rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300">
+                <span className="text-2xl sm:text-3xl group-hover:scale-125 transition-transform duration-500">🏛️</span>
+                <span className="text-sm sm:text-base font-medium">2000+ Yıllık Tarih</span>
               </div>
-              <div className="group flex items-center gap-4 bg-white/10 backdrop-blur-md px-8 py-4 rounded-full border border-white/20 hover:bg-white/20 transition-all duration-300 cursor-pointer">
-                <span className="text-3xl group-hover:scale-125 transition-transform duration-500">🌳</span>
-                <span className="text-base font-medium tracking-wide">Doğal Güzellikler</span>
+              <div className="w-full sm:w-auto group flex items-center justify-center gap-3 bg-white/10 backdrop-blur-md px-6 py-3 rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300">
+                <span className="text-2xl sm:text-3xl group-hover:scale-125 transition-transform duration-500">🌳</span>
+                <span className="text-sm sm:text-base font-medium">Doğal Güzellikler</span>
               </div>
-              <div className="group flex items-center gap-4 bg-white/10 backdrop-blur-md px-8 py-4 rounded-full border border-white/20 hover:bg-white/20 transition-all duration-300 cursor-pointer">
-                <span className="text-3xl group-hover:scale-125 transition-transform duration-500">🎭</span>
-                <span className="text-base font-medium tracking-wide">Zengin Kültür</span>
+              <div className="w-full sm:w-auto group flex items-center justify-center gap-3 bg-white/10 backdrop-blur-md px-6 py-3 rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300">
+                <span className="text-2xl sm:text-3xl group-hover:scale-125 transition-transform duration-500">🎭</span>
+                <span className="text-sm sm:text-base font-medium">Zengin Kültür</span>
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-xl mx-auto">
+            <div className="flex flex-col gap-4 justify-center items-stretch sm:items-center max-w-xl mx-auto px-4">
               <a 
                 href="/places" 
-                className="group w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-green-600 via-green-500 to-green-600 text-white rounded-xl font-medium hover:shadow-lg hover:shadow-green-500/20 transition-all duration-500 hover:scale-105 text-center relative overflow-hidden"
+                className="group w-full sm:w-auto px-6 py-4 bg-gradient-to-r from-green-600 via-green-500 to-green-600 text-white rounded-xl font-medium hover:shadow-lg hover:shadow-green-500/20 transition-all duration-500 hover:scale-[1.02] text-center relative overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
                 <div className="flex flex-col items-center justify-center relative z-10">
@@ -68,12 +68,12 @@ export default function Home() {
                     Keşfet
                     <span className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform duration-500">→</span>
                   </span>
-                  <span className="text-sm text-white/90 mt-0.5">50+ Tarihi Mekan</span>
+                  <span className="text-sm text-white/90 mt-1">50+ Tarihi Mekan</span>
                 </div>
               </a>
               <a 
                 href="/events" 
-                className="group w-full sm:w-auto px-6 py-3 bg-white/10 text-white rounded-xl font-medium backdrop-blur-md transition-all duration-500 hover:scale-105 border border-white/30 text-center relative overflow-hidden hover:bg-white/20"
+                className="group w-full sm:w-auto px-6 py-4 bg-white/10 text-white rounded-xl font-medium backdrop-blur-md transition-all duration-500 hover:scale-[1.02] border border-white/30 text-center relative overflow-hidden hover:bg-white/20"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
                 <div className="flex flex-col items-center justify-center relative z-10">
@@ -81,7 +81,7 @@ export default function Home() {
                     Etkinlikler
                     <span className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform duration-500">→</span>
                   </span>
-                  <span className="text-sm text-white/90 mt-0.5">Yıl Boyu Aktiviteler</span>
+                  <span className="text-sm text-white/90 mt-1">Yıl Boyu Aktiviteler</span>
                 </div>
               </a>
             </div>
