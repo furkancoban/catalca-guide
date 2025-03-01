@@ -43,7 +43,7 @@ export default function Logo() {
             Çatalca
           </span>
           <span className="text-sm text-green-700 font-medium -mt-1">
-            Guide
+            Rehberi
           </span>
         </div>
       </motion.div>
