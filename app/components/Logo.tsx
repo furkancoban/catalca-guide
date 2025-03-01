@@ -39,10 +39,10 @@ export default function Logo() {
           </svg>
         </div>
         <div className="flex flex-col">
-          <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-green-700">
+          <span className="text-3xl md:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-green-700 tracking-tight">
             Çatalca
           </span>
-          <span className="text-sm text-green-700 font-medium -mt-1">
+          <span className="text-base md:text-lg text-green-700 font-semibold -mt-1 tracking-wide">
             Rehberi
           </span>
         </div>
