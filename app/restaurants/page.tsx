@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 import Card from '../components/Card';
@@ -27,39 +29,61 @@ export default function Restaurants() {
         <h2 className="text-3xl font-semibold mb-8 text-gray-900">Öne Çıkan Restoranlar</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <Card
-            title="Çatalca Köy Sofrası"
-            subtitle="Türk Mutfağı"
-            rating="4.8/5"
-            description="Geleneksel Türk mutfağının en güzel örnekleri. Ev yapımı mantı, içli köfte ve dolmalar. Taze bahçe yeşillikleri ve mevsim salataları."
-            image="https://images.unsplash.com/photo-1561758033-d89a9ad46330"
-            imageAlt="Çatalca Köy Sofrası"
-            location="Kaleiçi Mahallesi"
-            mapLocation="Kaleiçi Mahallesi"
+            title="Çatalca Köftecisi"
+            subtitle="Köfte & Izgara"
+            rating="4.8"
+            description="Çatalca'nın en meşhur köftecisi. El yapımı köfteler, taze pide ve özel soslarla servis edilir."
+            image="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+            imageAlt="Çatalca Köftecisi"
+            location="Çatalca Merkez"
+            latitude={41.1433}
+            longitude={28.4597}
             details={
               <>
-                <p>📍 Konum: Kaleiçi Mahallesi</p>
-                <p>⏰ Çalışma Saatleri: 08:00-22:00</p>
-                <p>📞 Rezervasyon: 0212-XXX-XXXX</p>
+                <p>📍 Konum: Ferhatpaşa Caddesi</p>
+                <p>🕒 Çalışma Saatleri: 11:00-22:00</p>
                 <p>💰 Fiyat Aralığı: ₺₺</p>
+                <p>📞 Rezervasyon: (0212) 789 XX XX</p>
               </>
             }
           />
 
           <Card
-            title="Durusu Balık Evi"
-            subtitle="Deniz Mahsülleri"
-            rating="4.7/5"
-            description="Taze balık çeşitleri ve deniz mahsülleri. Göl manzaralı terasta yemek keyfi. Özel soslu kalamar ve midye dolma öne çıkan lezzetler."
-            image="https://images.unsplash.com/photo-1579027989536-b7b1f875659b"
-            imageAlt="Durusu Balık Evi"
-            location="Durusu Gölü Kenarı"
-            mapLocation="Durusu Gölü Kenarı"
+            title="Balkan Sofrası"
+            subtitle="Balkan Mutfağı"
+            rating="4.7"
+            description="Otantik Balkan lezzetleri sunan aile işletmesi. Ev yapımı mantı ve börekler öne çıkıyor."
+            image="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+            imageAlt="Balkan Sofrası"
+            location="Kaleiçi, Çatalca"
+            latitude={41.1445}
+            longitude={28.4610}
             details={
               <>
-                <p>📍 Konum: Durusu Gölü Kenarı</p>
-                <p>⏰ Çalışma Saatleri: 11:00-23:00</p>
-                <p>📞 Rezervasyon: 0212-XXX-XXXX</p>
+                <p>📍 Konum: Kaleiçi Mahallesi</p>
+                <p>🕒 Çalışma Saatleri: 10:00-22:00</p>
+                <p>💰 Fiyat Aralığı: ₺₺</p>
+                <p>📞 Rezervasyon: (0212) 789 XX XX</p>
+              </>
+            }
+          />
+
+          <Card
+            title="Çatalca Balık Evi"
+            subtitle="Deniz Mahsülleri"
+            rating="4.9"
+            description="Taze deniz ürünleri ve muhteşem manzara. Özellikle günbatımında tercih ediliyor."
+            image="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+            imageAlt="Çatalca Balık Evi"
+            location="Sahil, Çatalca"
+            latitude={41.1500}
+            longitude={28.4550}
+            details={
+              <>
+                <p>📍 Konum: Sahil Caddesi</p>
+                <p>🕒 Çalışma Saatleri: 12:00-23:00</p>
                 <p>💰 Fiyat Aralığı: ₺₺₺</p>
+                <p>📞 Rezervasyon: (0212) 789 XX XX</p>
               </>
             }
           />

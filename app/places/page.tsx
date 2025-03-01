@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 import Card from '../components/Card';
@@ -69,37 +71,61 @@ export default function Places() {
           <h2 className="text-3xl font-semibold mb-8 text-gray-900">Doğal Güzellikler</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Card
-              title="Durusu Gölü"
-              subtitle="Göl ve Mesire Alanı"
-              rating="4.9/5"
-              description="İstanbul'un önemli su kaynaklarından biri. Piknik alanları, yürüyüş parkurları ve balık tutma imkanları mevcut."
-              image="https://images.unsplash.com/photo-1439066615861-d1af74d74000"
-              imageAlt="Durusu Gölü"
-              location="Durusu Mahallesi"
-              mapLocation="Durusu Mahallesi"
+              title="Karaburun Plajı"
+              subtitle="Plaj"
+              rating="4.7"
+              description="Karaburun'un kristal berraklığındaki sularında yüzme ve güneşlenme imkanı. Temiz plajı ve modern tesisleriyle ideal bir tatil noktası."
+              image="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+              imageAlt="Karaburun Plajı"
+              location="Karaburun, Çatalca"
+              latitude={41.3484}
+              longitude={28.6768}
               details={
                 <>
-                  <p>📍 Konum: Durusu Mahallesi</p>
-                  <p>⏰ En İyi Zaman: Sabah ve Akşamüstü</p>
-                  <p>🎣 Aktiviteler: Piknik, Balık Tutma, Yürüyüş</p>
+                  <p>📍 Konum: Karaburun</p>
+                  <p>🕒 En İyi Zaman: Haziran-Eylül</p>
+                  <p>💰 Giriş: Ücretsiz</p>
+                  <p>🎯 Öne Çıkan: Temiz Plaj</p>
+                </>
+              }
+            />
+
+            <Card
+              title="Durusu Gölü"
+              subtitle="Göl"
+              rating="4.6"
+              description="Doğal güzellikleri ve zengin kuş çeşitliliğiyle ünlü Durusu Gölü, piknik ve doğa yürüyüşü için ideal bir mekan."
+              image="https://images.unsplash.com/photo-1439066615861-d1af74d74000?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+              imageAlt="Durusu Gölü"
+              location="Durusu, Çatalca"
+              latitude={41.3156}
+              longitude={28.6313}
+              details={
+                <>
+                  <p>📍 Konum: Durusu</p>
+                  <p>🕒 En İyi Zaman: Tüm Yıl</p>
+                  <p>💰 Giriş: Ücretsiz</p>
+                  <p>🎯 Öne Çıkan: Kuş Gözlemi</p>
                 </>
               }
             />
 
             <Card
               title="Çatalca Ormanları"
-              subtitle="Doğal Orman"
-              rating="4.8/5"
-              description="Zengin flora ve faunaya sahip doğal orman alanları. Trekking, kamp ve doğa fotoğrafçılığı için ideal."
-              image="https://images.unsplash.com/photo-1448375240586-882707db888b"
+              subtitle="Doğa"
+              rating="4.8"
+              description="Yemyeşil ormanları ve temiz havasıyla doğa yürüyüşü, kamp ve piknik için mükemmel bir seçenek."
+              image="https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
               imageAlt="Çatalca Ormanları"
               location="Çatalca"
-              mapLocation="Çatalca"
+              latitude={41.1433}
+              longitude={28.4597}
               details={
                 <>
                   <p>📍 Konum: Çatalca</p>
-                  <p>⏰ En İyi Zaman: İlkbahar ve Sonbahar</p>
-                  <p>🏃‍♂️ Aktiviteler: Trekking, Kamp, Fotoğrafçılık</p>
+                  <p>🕒 En İyi Zaman: İlkbahar-Sonbahar</p>
+                  <p>💰 Giriş: Ücretsiz</p>
+                  <p>🎯 Öne Çıkan: Doğa Yürüyüşü</p>
                 </>
               }
             />
