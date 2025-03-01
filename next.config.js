@@ -12,6 +12,7 @@ const nextConfig = {
     ],
     unoptimized: true, // This is important for Netlify deployment
   },
+  output: 'standalone',
   // Enable experimental features for better performance
   experimental: {
     optimizePackageImports: ['react-icons'],
