@@ -12,8 +12,8 @@ const nextConfig = {
     ],
     unoptimized: true, // This is important for Netlify deployment
   },
-  // Changed for Netlify compatibility
-  output: 'export',
+  // Remove export and use standalone for Netlify Next.js plugin
+  output: 'standalone',
   reactStrictMode: true,
   // Enable production source maps for better debugging
   productionBrowserSourceMaps: true,
