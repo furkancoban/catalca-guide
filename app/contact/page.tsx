@@ -1,6 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
+import Image from 'next/image';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import { FiMail, FiPhone, FiMapPin, FiClock, FiChevronDown } from 'react-icons/fi';
 
 interface FAQ {
@@ -18,17 +20,18 @@ export default function Contact() {
 
   const [activeAccordion, setActiveAccordion] = useState<number | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // Handle form submission here
     console.log('Form submitted:', formData);
-    // Add form submission logic here
+    // Reset form
+    setFormData({ name: '', email: '', subject: '', message: '' });
+    alert('Mesajınız gönderildi! En kısa sürede size dönüş yapacağız.');
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   const faqs: FAQ[] = [
@@ -75,98 +78,90 @@ export default function Contact() {
   ];
 
   return (
-    <main className="bg-gray-50">
+    <main className="flex-grow bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-green-600 to-emerald-700 text-white py-20">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">İletişime Geçin</h1>
-          <p className="text-xl text-white max-w-2xl mx-auto">
-            Sorularınız, önerileriniz veya geri bildirimleriniz için bizimle iletişime geçebilirsiniz.
-          </p>
-        </div>
-      </section>
-
-      {/* Contact Info Cards */}
-      <section className="max-w-6xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 -mt-16">
-          <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
-            <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
-              <FiPhone className="w-8 h-8 text-white stroke-[1.5]" />
-            </div>
-            <div className="text-center">
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Telefon</h3>
-              <p className="text-gray-700 text-lg hover:text-green-600 transition-colors duration-200">0212-XXX-XXXX</p>
-            </div>
-          </div>
-          <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
-            <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
-              <FiMail className="w-8 h-8 text-white stroke-[1.5]" />
-            </div>
-            <div className="text-center">
-              <h3 className="text-xl font-bold mb-3 text-gray-900">E-posta</h3>
-              <p className="text-gray-700 text-lg hover:text-green-600 transition-colors duration-200">info@catalca.gov.tr</p>
-            </div>
-          </div>
-          <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
-            <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
-              <FiMapPin className="w-8 h-8 text-white stroke-[1.5]" />
-            </div>
-            <div className="text-center">
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Adres</h3>
-              <p className="text-gray-700 text-lg hover:text-green-600 transition-colors duration-200">Çatalca Belediyesi, İstanbul</p>
-            </div>
-          </div>
-          <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
-            <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
-              <FiClock className="w-8 h-8 text-white stroke-[1.5]" />
-            </div>
-            <div className="text-center">
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Çalışma Saatleri</h3>
-              <p className="text-gray-700 text-lg hover:text-green-600 transition-colors duration-200">Pzt - Cuma: 09:00 - 17:00</p>
-            </div>
+      <section className="relative h-[300px] w-full">
+        <Image
+          src="https://images.unsplash.com/photo-1596524430615-b46475ddff6e"
+          alt="İletişim"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <div className="text-center text-white">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">İletişim</h1>
+            <p className="text-xl">Bizimle İletişime Geçin</p>
           </div>
         </div>
       </section>
 
-      {/* Contact Form and Map Section */}
-      <section className="max-w-6xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <div className="bg-white p-8 rounded-lg shadow-lg">
-            <h2 className="text-2xl font-bold mb-6 text-gray-900">Mesaj Gönderin</h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* Contact Section */}
+      <section className="max-w-6xl mx-auto px-4 py-16">
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Contact Information */}
+          <div className="bg-white rounded-lg shadow-md p-8">
+            <h2 className="text-2xl font-semibold mb-6 text-gray-900">İletişim Bilgileri</h2>
+            <div className="space-y-6">
+              <div className="flex items-center space-x-4">
+                <FaPhone className="text-2xl text-blue-600" />
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                    İsim Soyisim
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900"
-                    required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    E-posta
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900"
-                    required
-                  />
+                  <h3 className="font-medium text-gray-900">Telefon</h3>
+                  <p className="text-gray-600">(0212) XXX XX XX</p>
                 </div>
               </div>
+              <div className="flex items-center space-x-4">
+                <FaEnvelope className="text-2xl text-blue-600" />
+                <div>
+                  <h3 className="font-medium text-gray-900">E-posta</h3>
+                  <p className="text-gray-600">info@catalca-guide.com</p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-4">
+                <FaMapMarkerAlt className="text-2xl text-blue-600" />
+                <div>
+                  <h3 className="font-medium text-gray-900">Adres</h3>
+                  <p className="text-gray-600">Çatalca, İstanbul</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <div className="bg-white rounded-lg shadow-md p-8">
+            <h2 className="text-2xl font-semibold mb-6 text-gray-900">Bize Ulaşın</h2>
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                  İsim
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  E-posta
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </div>
+              <div>
+                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
                   Konu
                 </label>
                 <input
@@ -175,47 +170,31 @@ export default function Contact() {
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900"
                   required
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Mesajınız
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                  Mesaj
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  rows={6}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900"
                   required
-                />
+                  rows={4}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                ></textarea>
               </div>
               <button
                 type="submit"
-                className="w-full bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 transition-colors duration-200"
+                className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors duration-200"
               >
                 Gönder
               </button>
             </form>
-          </div>
-
-          {/* Map */}
-          <div className="bg-white p-8 rounded-lg shadow-lg">
-            <h2 className="text-2xl font-bold mb-6 text-gray-900">Konum</h2>
-            <div className="aspect-square w-full bg-gray-100 rounded-lg overflow-hidden">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48239.80759099542!2d28.413650899999998!3d41.143889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b553bd3295cf8d%3A0x5dbbd3858f9bdf0f!2zw4dhdGFsY2EsIMSwc3RhbmJ1bA!5e0!3m2!1str!2str!4v1234567890"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
           </div>
         </div>
       </section>

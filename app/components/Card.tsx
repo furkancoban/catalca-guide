@@ -4,15 +4,15 @@ import MapButtons from './MapButtons';
 
 interface CardProps {
   title: string;
-  subtitle?: string;
-  rating?: string;
-  description?: string;
+  subtitle: string;
+  rating: string;
+  description: string;
   image: string;
   imageAlt: string;
-  details: React.ReactNode;
   location: string;
   latitude: number;
   longitude: number;
+  details: React.ReactNode;
 }
 
 export default function Card({
@@ -22,39 +22,45 @@ export default function Card({
   description,
   image,
   imageAlt,
-  details,
   location,
   latitude,
-  longitude
+  longitude,
+  details,
 }: CardProps) {
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden h-[520px]">
-      <div className="h-48 relative">
-        <Image 
+    <div className="bg-white rounded-lg shadow-md overflow-hidden h-full transform transition duration-300 hover:scale-[1.02]">
+      {/* Image container with fixed aspect ratio */}
+      <div className="relative w-full pt-[56.25%]">
+        <Image
           src={image}
           alt={imageAlt}
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover"
+          loading="lazy"
+          quality={75}
         />
       </div>
-      <div className="p-6 h-[calc(520px-192px)] relative">
-        <div className="flex justify-between items-start mb-4">
-          <div>
-            <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
-            {subtitle && <p className="text-green-600">{subtitle}</p>}
+
+      <div className="p-6">
+        <div className="space-y-2 mb-6">
+          <div className="flex justify-between items-start">
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
+              <p className="text-sm text-gray-600">{subtitle}</p>
+            </div>
+            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800">
+              {rating}
+            </span>
           </div>
-          {rating && <div className="text-green-600">⭐ {rating}</div>}
+          <p className="text-gray-700 text-sm line-clamp-3">{description}</p>
         </div>
-        {description && (
-          <div className="mb-4">
-            <p className="text-gray-700 line-clamp-2">{description}</p>
+
+        <div className="space-y-4">
+          <div className="text-sm text-gray-700">{details}</div>
+          <div className="-mx-6 px-2">
+            <MapButtons location={location} latitude={latitude} longitude={longitude} />
           </div>
-        )}
-        <div className="space-y-2 text-gray-700">
-          {details}
-        </div>
-        <div className="absolute bottom-0 left-0 right-0 p-4">
-          <MapButtons latitude={latitude} longitude={longitude} address={location} />
         </div>
       </div>
     </div>

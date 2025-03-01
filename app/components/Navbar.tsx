@@ -26,7 +26,9 @@ export default function Navbar() {
 
   const menuItems = [
     { href: '/', label: 'Ana Sayfa' },
-    { href: '/places', label: 'Yerler' },
+    { href: '/places', label: 'Gezilecek Yerler' },
+    { href: '/restaurants', label: 'Restoranlar' },
+    { href: '/hotels', label: 'Oteller' },
     { href: '/events', label: 'Etkinlikler' },
     { href: '/about', label: 'Hakkında' },
     { href: '/contact', label: 'İletişim' },

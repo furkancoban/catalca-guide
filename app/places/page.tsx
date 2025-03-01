@@ -8,11 +8,13 @@ export default function Places() {
   return (
     <main className="flex-grow bg-gray-50">
       {/* Hero Section */}
-      <section className="relative h-[400px]">
+      <section className="relative h-[400px] w-full">
         <Image
           src="https://images.unsplash.com/photo-1533387520709-752d83de3630"
           alt="Çatalca'nın Tarihi ve Doğal Güzellikleri"
           fill
+          priority
+          sizes="100vw"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
@@ -26,7 +28,7 @@ export default function Places() {
       {/* Historical Places */}
       <section className="max-w-6xl mx-auto px-4 py-16">
         <h2 className="text-3xl font-semibold mb-8 text-gray-900">Tarihi Yerler</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 min-h-[400px]">
           <Card
             title="Anastasios Surları"
             subtitle="Tarihi Sur"
@@ -42,25 +44,9 @@ export default function Places() {
                 <p>📍 Konum: Belgrat Köyü</p>
                 <p>⏰ Ziyaret Saatleri: 24 saat açık</p>
                 <p>🎫 Giriş: Ücretsiz</p>
-              </>
-            }
-          />
-
-          <Card
-            title="İnceğiz Mağaraları"
-            subtitle="Tarihi Mağaralar"
-            rating="4.7/5"
-            description="Roma döneminden kalma tarihi mağaralar. İçerisinde kilise ve yaşam alanları bulunuyor. Doğal ve tarihi güzelliği bir arada sunan özel bir mekan."
-            image="https://images.unsplash.com/photo-1619266465172-02a857c3556d?ixlib=rb-4.0.3"
-            imageAlt="İnceğiz Mağaraları"
-            location="İnceğiz Köyü"
-            latitude={41.1234}
-            longitude={28.4789}
-            details={
-              <>
-                <p>📍 Konum: İnceğiz Köyü</p>
-                <p>⏰ Ziyaret Saatleri: 09:00-17:00</p>
-                <p>🎫 Giriş: ₺20</p>
+                <p>🎯 Öne Çıkan: Tarihi Mimari</p>
+                <p>📏 Sur Uzunluğu: ~56 km</p>
+                <p>🏛️ Yapım Yılı: M.S. 469</p>
               </>
             }
           />
@@ -154,6 +140,8 @@ export default function Places() {
                 <p>📍 Konum: Çatalca Merkez</p>
                 <p>⏰ Ziyaret Saatleri: 09:00-17:00</p>
                 <p>🎫 Giriş: ₺15</p>
+                <p>🎯 Öne Çıkan: Tarihi Eserler</p>
+                <p>📱 İletişim: (0212) XXX XX XX</p>
               </>
             }
           />
@@ -173,6 +161,8 @@ export default function Places() {
                 <p>📍 Konum: Çatalca Merkez</p>
                 <p>⏰ En İyi Zaman: Sabah ve Akşamüstü</p>
                 <p>📸 Önerilen: Fotoğraf Turu, Yürüyüş</p>
+                <p>🎯 Öne Çıkan: Osmanlı Mimarisi</p>
+                <p>🚶‍♂️ Yürüyüş Süresi: ~2 saat</p>
               </>
             }
           />

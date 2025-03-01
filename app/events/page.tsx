@@ -8,11 +8,13 @@ export default function Events() {
   return (
     <main className="flex-grow bg-gray-50">
       {/* Hero Section */}
-      <section className="relative h-[400px]">
+      <section className="relative h-[400px] w-full">
         <Image
           src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3"
           alt="Çatalca Etkinlikleri"
           fill
+          priority
+          sizes="100vw"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
@@ -26,7 +28,7 @@ export default function Events() {
       {/* Highlights Section */}
       <section className="max-w-6xl mx-auto px-4 py-16">
         <h2 className="text-3xl font-semibold mb-8 text-gray-900">Öne Çıkanlar</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 min-h-[400px]">
           <Card
             title="Anastasios Surları"
             subtitle="Tarihi Sur"
@@ -42,26 +44,6 @@ export default function Events() {
                 <p>📍 Konum: Çatalca Merkez</p>
                 <p>🕒 Ziyaret Saatleri: Her gün 09:00-17:00</p>
                 <p>💰 Giriş: Ücretsiz</p>
-                <p>📞 İletişim: (0212) 789 XX XX</p>
-              </>
-            }
-          />
-
-          <Card
-            title="İnceğiz Mağaraları"
-            subtitle="Tarihi Mağara"
-            rating="4.6"
-            description="İnceğiz Mağaraları, Çatalca'nın en önemli tarihi ve turistik mekanlarından biridir. Roma döneminden kalma bu mağaralar, dönemin yaşam tarzını yansıtır."
-            image="https://images.unsplash.com/photo-1590332634781-c6aa8e681573?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-            imageAlt="İnceğiz Mağaraları"
-            location="İnceğiz, Çatalca"
-            latitude={41.1234}
-            longitude={28.4789}
-            details={
-              <>
-                <p>📍 Konum: İnceğiz Mahallesi</p>
-                <p>🕒 Ziyaret Saatleri: Her gün 10:00-16:00</p>
-                <p>💰 Giriş: 20₺</p>
                 <p>📞 İletişim: (0212) 789 XX XX</p>
               </>
             }
