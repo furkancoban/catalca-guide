@@ -1,6 +1,4 @@
 /** @type {import('next').NextConfig} */
-const path = require('path');
-
 const nextConfig = {
   images: {
     remotePatterns: [
@@ -10,39 +8,11 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
-    unoptimized: true, // This is important for Netlify deployment
+    unoptimized: true,
   },
-  // Remove export and use standalone for Netlify Next.js plugin
   output: 'standalone',
   reactStrictMode: true,
-  // Enable production source maps for better debugging
-  productionBrowserSourceMaps: true,
-  // Enable compression for better performance
   swcMinify: true,
-  // Configure CSS handling
-  compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
-  },
-  // Configure webpack
-  webpack: (config) => {
-    // Enable persistent caching
-    config.cache = {
-      type: 'filesystem',
-      buildDependencies: {
-        config: [__filename],
-      },
-    };
-
-    return config;
-  },
-  // Optimize build performance
-  onDemandEntries: {
-    maxInactiveAge: 60 * 60 * 1000,
-    pagesBufferLength: 5,
-  },
-  experimental: {
-    optimizePackageImports: ['react-icons']
-  }
 };
 
 module.exports = nextConfig; 
