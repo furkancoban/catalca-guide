@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: #0a0a0a;
+      --foreground: #ededed;
+    }
+  }
+
+  body {
+    @apply bg-background text-foreground min-h-screen;
+  }
+}
+
+@layer components {
+  .clip-path-c {
+    clip-path: path('M 50 0 A 50 50 0 1 1 50 100 A 50 50 0 1 1 50 0 L 50 20 A 30 30 0 1 0 50 80 A 30 30 0 1 0 50 20');
+  }
+}
+
+@layer utilities {
+  @keyframes scroll-down {
+    0% { transform: translateY(0); opacity: 1; }
+    75% { transform: translateY(0.75rem); opacity: 0; }
+    76% { transform: translateY(0); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  .animate-scroll-down {
+    animation: scroll-down 2s infinite;
+  }
+}
