@@ -35,7 +35,8 @@ export default function Places() {
             image="https://images.unsplash.com/photo-1564507592333-c60657eea523"
             imageAlt="Anastasios Surları"
             location="Belgrat Köyü"
-            mapLocation="Belgrat Köyü"
+            latitude={41.1433}
+            longitude={28.4597}
             details={
               <>
                 <p>📍 Konum: Belgrat Köyü</p>
@@ -53,7 +54,8 @@ export default function Places() {
             image="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1"
             imageAlt="İnceğiz Mağaraları"
             location="İnceğiz Köyü"
-            mapLocation="İnceğiz Köyü"
+            latitude={41.1234}
+            longitude={28.4789}
             details={
               <>
                 <p>📍 Konum: İnceğiz Köyü</p>
@@ -145,7 +147,8 @@ export default function Places() {
             image="https://images.unsplash.com/photo-1518998053901-5348d3961a04"
             imageAlt="Çatalca Kent Müzesi"
             location="Çatalca Merkez"
-            mapLocation="Çatalca Merkez"
+            latitude={41.1433}
+            longitude={28.4597}
             details={
               <>
                 <p>📍 Konum: Çatalca Merkez</p>
@@ -163,7 +166,8 @@ export default function Places() {
             image="https://images.unsplash.com/photo-1527838832700-5059252407fa"
             imageAlt="Kaleiçi Mahallesi"
             location="Çatalca Merkez"
-            mapLocation="Çatalca Merkez"
+            latitude={41.1433}
+            longitude={28.4597}
             details={
               <>
                 <p>📍 Konum: Çatalca Merkez</p>

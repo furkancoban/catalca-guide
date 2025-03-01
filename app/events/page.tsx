@@ -95,6 +95,8 @@ export default function Events() {
             image="https://images.unsplash.com/photo-1520520731457-9283dd14aa66"
             imageAlt="Karadeniz Sahili"
             location="Karaburun, Çatalca"
+            latitude={41.3484}
+            longitude={28.6868}
             details={
               <>
                 <p>📍 Konum: Karaburun</p>
@@ -118,6 +120,8 @@ export default function Events() {
             image="https://images.unsplash.com/photo-1523741543316-beb7fc7023d8"
             imageAlt="Çatalca Tarım Festivali"
             location="Çatalca Merkez"
+            latitude={41.1433}
+            longitude={28.4597}
             details={
               <>
                 <p>📍 Konum: Çatalca Merkez</p>
@@ -136,6 +140,8 @@ export default function Events() {
             image="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3"
             imageAlt="Bahar Şenlikleri"
             location="Kaleiçi Meydanı, Çatalca"
+            latitude={41.1433}
+            longitude={28.4597}
             details={
               <>
                 <p>📍 Konum: Kaleiçi Meydanı</p>
@@ -154,6 +160,8 @@ export default function Events() {
             image="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3"
             imageAlt="Çatalca Kültür ve Sanat Festivali"
             location="Çatalca Kültür Merkezi"
+            latitude={41.1433}
+            longitude={28.4597}
             details={
               <>
                 <p>📍 Konum: Çatalca Kültür Merkezi</p>
@@ -172,6 +180,8 @@ export default function Events() {
             image="https://images.unsplash.com/photo-1555939594-58d7cb561ad1"
             imageAlt="Çatalca Gastronomi Günleri"
             location="Ferhatpaşa Meydanı"
+            latitude={41.1433}
+            longitude={28.4597}
             details={
               <>
                 <p>📍 Konum: Ferhatpaşa Meydanı</p>
@@ -190,6 +200,8 @@ export default function Events() {
             image="https://images.unsplash.com/photo-1550583724-b2692b85b150"
             imageAlt="Çatalca Süt Festivali"
             location="Çatalca Fuar Alanı"
+            latitude={41.1433}
+            longitude={28.4597}
             details={
               <>
                 <p>📍 Konum: Çatalca Fuar Alanı</p>
@@ -208,6 +220,8 @@ export default function Events() {
             image="https://images.unsplash.com/photo-1459749411175-04bf5292ceea"
             imageAlt="Çatalca Gençlik Festivali"
             location="Çatalca Spor Kompleksi"
+            latitude={41.1433}
+            longitude={28.4597}
             details={
               <>
                 <p>📍 Konum: Çatalca Spor Kompleksi</p>
@@ -226,6 +240,8 @@ export default function Events() {
             image="https://images.unsplash.com/photo-1469474968028-56623f02e42e"
             imageAlt="Çatalca Doğa ve Fotoğraf Festivali"
             location="Çatalca Tabiat Parkı"
+            latitude={41.1433}
+            longitude={28.4597}
             details={
               <>
                 <p>📍 Konum: Çatalca Tabiat Parkı</p>
@@ -244,6 +260,8 @@ export default function Events() {
             image="https://images.unsplash.com/photo-1528396518501-b53b655eb9b3"
             imageAlt="Çatalca El Sanatları Şenliği"
             location="Çatalca Kültür Merkezi"
+            latitude={41.1433}
+            longitude={28.4597}
             details={
               <>
                 <p>📍 Konum: Çatalca Kültür Merkezi</p>
@@ -262,6 +280,8 @@ export default function Events() {
             image="https://images.unsplash.com/photo-1541625602330-2277a4c46182"
             imageAlt="Çatalca Bisiklet Festivali"
             location="Çatalca Merkez"
+            latitude={41.1433}
+            longitude={28.4597}
             details={
               <>
                 <p>📍 Konum: Çatalca Merkez</p>
@@ -280,6 +300,8 @@ export default function Events() {
             image="https://images.unsplash.com/photo-1511421585906-57a6e6dc3a2f"
             imageAlt="Çatalca Balık Festivali"
             location="Karaburun Sahili"
+            latitude={41.3484}
+            longitude={28.6868}
             details={
               <>
                 <p>📍 Konum: Karaburun Sahili</p>
@@ -298,6 +320,8 @@ export default function Events() {
             image="https://images.unsplash.com/photo-1544967082-d9d25d867d66"
             imageAlt="Çatalca Arkeoloji Günleri"
             location="Anastasios Surları"
+            latitude={41.1433}
+            longitude={28.4597}
             details={
               <>
                 <p>📍 Konum: Anastasios Surları</p>
@@ -408,6 +432,8 @@ export default function Events() {
               image="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
               imageAlt="Silivri"
               location="Silivri, İstanbul"
+              latitude={41.1433}
+              longitude={28.4597}
               details={
                 <>
                   <p>📍 Konum: Silivri, İstanbul</p>
@@ -425,6 +451,8 @@ export default function Events() {
               image="https://images.unsplash.com/photo-1439066615861-d1af74d74000"
               imageAlt="Durusu Gölü"
               location="Durusu, Çatalca"
+              latitude={41.1234}
+              longitude={28.4789}
               details={
                 <>
                   <p>📍 Konum: Durusu, Çatalca</p>
@@ -442,6 +470,8 @@ export default function Events() {
               image="https://images.unsplash.com/photo-1520520731457-9283dd14aa66"
               imageAlt="Yalıköy"
               location="Yalıköy, Çatalca"
+              latitude={41.1433}
+              longitude={28.4597}
               details={
                 <>
                   <p>📍 Konum: Yalıköy, Çatalca</p>
@@ -459,6 +489,8 @@ export default function Events() {
               image="https://images.unsplash.com/photo-1501785888041-af3ef285b470"
               imageAlt="Çilingoz Tabiat Parkı"
               location="Çilingoz, Çatalca"
+              latitude={41.1433}
+              longitude={28.4597}
               details={
                 <>
                   <p>📍 Konum: Çilingoz, Çatalca</p>
@@ -476,6 +508,8 @@ export default function Events() {
               image="https://images.unsplash.com/photo-1606761568499-6d2451b23c66"
               imageAlt="Hadımköy"
               location="Hadımköy, İstanbul"
+              latitude={41.1433}
+              longitude={28.4597}
               details={
                 <>
                   <p>📍 Konum: Hadımköy, İstanbul</p>
@@ -493,6 +527,8 @@ export default function Events() {
               image="https://images.unsplash.com/photo-1505159940484-eb2b9f2588e2"
               imageAlt="Büyükçekmece Gölü"
               location="Büyükçekmece, İstanbul"
+              latitude={41.1433}
+              longitude={28.4597}
               details={
                 <>
                   <p>📍 Konum: Büyükçekmece, İstanbul</p>
@@ -510,6 +546,8 @@ export default function Events() {
               image="https://images.unsplash.com/photo-1564507592333-c60657eea523"
               imageAlt="Bizans Mirası"
               location="Anastasios Surları"
+              latitude={41.1433}
+              longitude={28.4597}
               details={
                 <>
                   <p>📍 Konum: Anastasios Surları</p>
@@ -527,6 +565,8 @@ export default function Events() {
               image="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad"
               imageAlt="Ayçiçeği Tarlaları"
               location="Çatalca Ovaları"
+              latitude={41.1433}
+              longitude={28.4597}
               details={
                 <>
                   <p>📍 Konum: Çatalca Ovaları</p>
@@ -544,6 +584,8 @@ export default function Events() {
               image="https://images.unsplash.com/photo-1500076656116-558758c991c1"
               imageAlt="Organik Çiftlikler"
               location="Çatalca Köyleri"
+              latitude={41.1433}
+              longitude={28.4597}
               details={
                 <>
                   <p>📍 Konum: Çatalca Köyleri</p>

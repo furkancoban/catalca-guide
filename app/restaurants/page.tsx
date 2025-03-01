@@ -103,7 +103,8 @@ export default function Restaurants() {
               image="https://images.unsplash.com/photo-1628294895950-9805252327bc"
               imageAlt="Yöresel Kahvaltıcı"
               location="İnceğiz Köyü"
-              mapLocation="İnceğiz Köyü"
+              latitude={41.1234}
+              longitude={28.4789}
               details={
                 <>
                   <p>📍 İnceğiz Köyü</p>
@@ -120,7 +121,8 @@ export default function Restaurants() {
               image="https://images.unsplash.com/photo-1603360946369-dc9bb6258143"
               imageAlt="Mangal Keyfi"
               location="Çatalca Ormanı"
-              mapLocation="Çatalca Ormanı"
+              latitude={41.1433}
+              longitude={28.4597}
               details={
                 <>
                   <p>📍 Çatalca Ormanı</p>
@@ -137,7 +139,8 @@ export default function Restaurants() {
               image="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4"
               imageAlt="Kafe & Pastane"
               location="Kaleiçi Meydanı"
-              mapLocation="Kaleiçi Meydanı"
+              latitude={41.1433}
+              longitude={28.4597}
               details={
                 <>
                   <p>📍 Kaleiçi Meydanı</p>
@@ -161,7 +164,8 @@ export default function Restaurants() {
             image="https://images.unsplash.com/photo-1555396273-367ea4eb4db5"
             imageAlt="Çatalca Pide Salonu"
             location="Ferhatpaşa Caddesi"
-            mapLocation="Ferhatpaşa Caddesi"
+            latitude={41.1433}
+            longitude={28.4597}
             details={
               <>
                 <p>📍 Ferhatpaşa Caddesi</p>
@@ -179,7 +183,8 @@ export default function Restaurants() {
             image="https://images.unsplash.com/photo-1600891964092-4316c288032e"
             imageAlt="Köy Evi Restaurant"
             location="Yazlık Köyü"
-            mapLocation="Yazlık Köyü"
+            latitude={41.1433}
+            longitude={28.4597}
             details={
               <>
                 <p>📍 Yazlık Köyü</p>
@@ -197,7 +202,8 @@ export default function Restaurants() {
             image="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d"
             imageAlt="Yeşil Vadi Restaurant"
             location="Çatalca-İstanbul Yolu"
-            mapLocation="Çatalca-İstanbul Yolu"
+            latitude={41.1433}
+            longitude={28.4597}
             details={
               <>
                 <p>📍 Çatalca-İstanbul Yolu</p>
