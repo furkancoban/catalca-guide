@@ -81,10 +81,21 @@ const nextConfig = {
       }
     }
 
+    // Add fallbacks for Node.js modules
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        path: false,
+        crypto: false,
+      }
+    }
+
     return config
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
+    styledComponents: true,
   },
   // Optimize build performance
   onDemandEntries: {
