@@ -14,7 +14,7 @@ interface ImageCarouselProps {
   interval?: number;
 }
 
-export default function ImageCarousel({ images, interval = 5000 }: ImageCarouselProps) {
+const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, interval = 5000 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [touchStart, setTouchStart] = useState<number | null>(null);
@@ -22,78 +22,40 @@ export default function ImageCarousel({ images, interval = 5000 }: ImageCarousel
   const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
   const [failedImages, setFailedImages] = useState<Set<string>>(new Set());
 
-  useEffect(() => {
-    const preloadImages = async () => {
-      try {
-        setIsLoading(true);
-        setFailedImages(new Set());
-
-        const results = await Promise.allSettled(
-          images.map((image) => {
-            return new Promise<string>((resolve, reject) => {
-              if (loadedImages.has(image.src)) {
-                resolve(image.src);
-                return;
-              }
-
-              const img = document.createElement('img');
-              img.src = image.src;
-
-              img.onload = () => {
-                setLoadedImages(prev => new Set([...prev, image.src]));
-                resolve(image.src);
-              };
-
-              img.onerror = () => {
-                setFailedImages(prev => new Set([...prev, image.src]));
-                reject(new Error(`Failed to load image: ${image.src}`));
-              };
-            });
-          })
-        );
-
-        // Log any failures
-        results.forEach((result, index) => {
-          if (result.status === 'rejected') {
-            console.error(`Failed to load image ${images[index].src}:`, result.reason);
-          }
-        });
-
-        // If all images failed, throw an error
-        const allFailed = results.every(result => result.status === 'rejected');
-        if (allFailed) {
-          throw new Error('All images failed to load');
-        }
-      } catch (error) {
-        if (error instanceof Error) {
-          console.error('Error preloading images:', error.message);
-        } else {
-          console.error('Error preloading images:', error);
-        }
-      } finally {
-        setIsLoading(false);
+  const preloadImage = (src: string): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      if (loadedImages.has(src)) {
+        resolve(src);
+      } else {
+        const img = new window.Image();
+        img.src = src;
+        img.onload = () => {
+          setLoadedImages(prev => {
+            const newSet = new Set(prev);
+            newSet.add(src);
+            return newSet;
+          });
+          resolve(src);
+        };
+        img.onerror = reject;
       }
-    };
-
-    preloadImages();
-  }, [images, loadedImages]);
-
-  useEffect(() => {
-    if (!isLoading && images.length > 0) {
-      const timer = setInterval(() => {
-        nextImage();
-      }, interval);
-
-      return () => clearInterval(timer);
-    }
-  }, [currentIndex, interval, isLoading, images.length]);
-
-  const nextImage = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    });
   };
 
-  const prevImage = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  useEffect(() => {
+    // Preload all images
+    Promise.all(images.map(img => preloadImage(img.src))).catch(console.error);
+
+    // Set up the interval for auto-sliding
+    const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, interval);
+
+    return () => clearInterval(timer);
+  }, [images, interval]);
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
   };
 
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -113,9 +75,9 @@ export default function ImageCarousel({ images, interval = 5000 }: ImageCarousel
     const isRightSwipe = distance < -50;
 
     if (isLeftSwipe) {
-      nextImage();
+      goToSlide((currentIndex + 1) % images.length);
     } else if (isRightSwipe) {
-      prevImage();
+      goToSlide((currentIndex - 1 + images.length) % images.length);
     }
   };
 
@@ -170,25 +132,27 @@ export default function ImageCarousel({ images, interval = 5000 }: ImageCarousel
                 {images.map((_, index) => (
                   <button
                     key={index}
-                    className={`w-2 h-2 rounded-full transition-colors ${
-                      index === currentIndex ? 'bg-white' : 'bg-white/50'
+                    onClick={() => goToSlide(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      index === currentIndex
+                        ? 'bg-white scale-125'
+                        : 'bg-white/50 hover:bg-white/75'
                     }`}
-                    onClick={() => setCurrentIndex(index)}
                     aria-label={`Go to slide ${index + 1}`}
                   />
                 ))}
               </div>
               <button
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-black/30 backdrop-blur-sm text-white hover:bg-black/50 transition-colors"
-                onClick={prevImage}
-                aria-label="Previous image"
+                onClick={() => goToSlide((currentIndex - 1 + images.length) % images.length)}
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-all duration-300"
+                aria-label="Previous slide"
               >
                 ←
               </button>
               <button
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-black/30 backdrop-blur-sm text-white hover:bg-black/50 transition-colors"
-                onClick={nextImage}
-                aria-label="Next image"
+                onClick={() => goToSlide((currentIndex + 1) % images.length)}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-all duration-300"
+                aria-label="Next slide"
               >
                 →
               </button>
@@ -201,4 +165,6 @@ export default function ImageCarousel({ images, interval = 5000 }: ImageCarousel
       )}
     </div>
   );
-} 
+};
+
+export default ImageCarousel; 

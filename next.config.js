@@ -95,20 +95,11 @@ const nextConfig = {
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
-    styledComponents: true,
   },
   // Optimize build performance
   onDemandEntries: {
     maxInactiveAge: 60 * 60 * 1000,
     pagesBufferLength: 5,
-  },
-  // Error page handling
-  errorBoundary: {
-    errorComponent: true,
-    onError: (error, errorInfo) => {
-      console.error('Page Error:', error);
-      console.error('Error Info:', errorInfo);
-    }
   },
 };
 
