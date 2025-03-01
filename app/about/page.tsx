@@ -21,7 +21,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
-              className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 mb-6"
+              className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-green-700 mb-6"
             >
               Çatalca Hakkında
             </motion.h1>
@@ -42,8 +42,8 @@ export default function AboutPage() {
           {/* History Section */}
           <section className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
             <div className="flex items-center gap-4 mb-6">
-              <IoMdTime className="text-4xl text-indigo-600" />
-              <h2 className="text-3xl font-bold text-indigo-600">Tarihçe</h2>
+              <IoMdTime className="text-4xl text-green-600" />
+              <h2 className="text-3xl font-bold text-green-600">Tarihçe</h2>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="prose max-w-none text-gray-700 leading-relaxed">
@@ -71,14 +71,14 @@ export default function AboutPage() {
           {/* Education Section */}
           <section className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
             <div className="flex items-center gap-4 mb-6">
-              <FaSchool className="text-4xl text-indigo-600" />
-              <h2 className="text-3xl font-bold text-indigo-600">Eğitim Kurumları</h2>
+              <FaSchool className="text-4xl text-green-600" />
+              <h2 className="text-3xl font-bold text-green-600">Eğitim Kurumları</h2>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-gray-50 p-6 rounded-lg">
                 <div className="flex items-center gap-3 mb-4">
-                  <FaSchool className="text-2xl text-blue-600" />
-                  <h3 className="text-2xl font-semibold text-blue-600">Okullar</h3>
+                  <FaSchool className="text-2xl text-green-600" />
+                  <h3 className="text-2xl font-semibold text-green-600">Okullar</h3>
                 </div>
                 <ul className="list-disc list-inside text-gray-700 space-y-3">
                   <li>Çatalca Anadolu Lisesi</li>
@@ -90,8 +90,8 @@ export default function AboutPage() {
               </div>
               <div className="bg-gray-50 p-6 rounded-lg">
                 <div className="flex items-center gap-3 mb-4">
-                  <FaBook className="text-2xl text-blue-600" />
-                  <h3 className="text-2xl font-semibold text-blue-600">Kütüphaneler</h3>
+                  <FaBook className="text-2xl text-green-600" />
+                  <h3 className="text-2xl font-semibold text-green-600">Kütüphaneler</h3>
                 </div>
                 <ul className="list-disc list-inside text-gray-700 space-y-3">
                   <li>Çatalca İlçe Halk Kütüphanesi</li>
@@ -104,14 +104,14 @@ export default function AboutPage() {
           {/* Places of Worship Section */}
           <section className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
             <div className="flex items-center gap-4 mb-6">
-              <FaLandmark className="text-4xl text-indigo-600" />
-              <h2 className="text-3xl font-bold text-indigo-600">İbadethaneler</h2>
+              <FaLandmark className="text-4xl text-green-600" />
+              <h2 className="text-3xl font-bold text-green-600">İbadethaneler</h2>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-gray-50 p-6 rounded-lg">
                 <div className="flex items-center gap-3 mb-4">
-                  <FaMosque className="text-2xl text-blue-600" />
-                  <h3 className="text-2xl font-semibold text-blue-600">Camiler</h3>
+                  <FaMosque className="text-2xl text-green-600" />
+                  <h3 className="text-2xl font-semibold text-green-600">Camiler</h3>
                 </div>
                 <ul className="list-disc list-inside text-gray-700 space-y-3">
                   <li>Ferhat Paşa Camii</li>
@@ -121,8 +121,8 @@ export default function AboutPage() {
               </div>
               <div className="bg-gray-50 p-6 rounded-lg">
                 <div className="flex items-center gap-3 mb-4">
-                  <FaChurch className="text-2xl text-blue-600" />
-                  <h3 className="text-2xl font-semibold text-blue-600">Kiliseler</h3>
+                  <FaChurch className="text-2xl text-green-600" />
+                  <h3 className="text-2xl font-semibold text-green-600">Kiliseler</h3>
                 </div>
                 <ul className="list-disc list-inside text-gray-700 space-y-3">
                   <li>Aya Nikola Kilisesi</li>
@@ -135,13 +135,13 @@ export default function AboutPage() {
           {/* Municipality News Section */}
           <section className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
             <div className="flex items-center gap-4 mb-6">
-              <FaNewspaper className="text-4xl text-indigo-600" />
-              <h2 className="text-3xl font-bold text-indigo-600">Belediye Haberleri</h2>
+              <FaNewspaper className="text-4xl text-green-600" />
+              <h2 className="text-3xl font-bold text-green-600">Belediye Haberleri</h2>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-8">
                 <div className="border-b border-gray-200 pb-6">
-                  <h3 className="text-2xl font-semibold text-blue-600 mb-3">
+                  <h3 className="text-2xl font-semibold text-green-600 mb-3">
                     Çatalca'da Yeni Park ve Bahçe Düzenlemeleri
                   </h3>
                   <p className="text-gray-700 leading-relaxed">
@@ -150,7 +150,7 @@ export default function AboutPage() {
                   </p>
                 </div>
                 <div className="border-b border-gray-200 pb-6">
-                  <h3 className="text-2xl font-semibold text-blue-600 mb-3">
+                  <h3 className="text-2xl font-semibold text-green-600 mb-3">
                     Kültür ve Sanat Etkinlikleri
                   </h3>
                   <p className="text-gray-700 leading-relaxed">
@@ -159,7 +159,7 @@ export default function AboutPage() {
                   </p>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-semibold text-blue-600 mb-3">
+                  <h3 className="text-2xl font-semibold text-green-600 mb-3">
                     Altyapı Çalışmaları
                   </h3>
                   <p className="text-gray-700 leading-relaxed">
@@ -181,30 +181,30 @@ export default function AboutPage() {
           {/* Future Projects Section */}
           <section className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
             <div className="flex items-center gap-4 mb-6">
-              <FaRocket className="text-4xl text-indigo-600" />
-              <h2 className="text-3xl font-bold text-indigo-600">Gelecek Projeleri</h2>
+              <FaRocket className="text-4xl text-green-600" />
+              <h2 className="text-3xl font-bold text-green-600">Gelecek Projeleri</h2>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-gray-50 p-6 rounded-lg">
                 <ul className="grid gap-4 text-gray-700">
                   <li className="flex items-center space-x-3">
-                    <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+                    <span className="w-2 h-2 bg-green-600 rounded-full"></span>
                     <span>Yeni Kültür Merkezi Projesi</span>
                   </li>
                   <li className="flex items-center space-x-3">
-                    <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+                    <span className="w-2 h-2 bg-green-600 rounded-full"></span>
                     <span>Çatalca Spor Kompleksi</span>
                   </li>
                   <li className="flex items-center space-x-3">
-                    <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+                    <span className="w-2 h-2 bg-green-600 rounded-full"></span>
                     <span>Tarihi Yapıların Restorasyonu</span>
                   </li>
                   <li className="flex items-center space-x-3">
-                    <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+                    <span className="w-2 h-2 bg-green-600 rounded-full"></span>
                     <span>Akıllı Şehir Uygulamaları</span>
                   </li>
                   <li className="flex items-center space-x-3">
-                    <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+                    <span className="w-2 h-2 bg-green-600 rounded-full"></span>
                     <span>Çevre Dostu Ulaşım Projeleri</span>
                   </li>
                 </ul>
