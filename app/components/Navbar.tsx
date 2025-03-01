@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
+import Logo from './Logo';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,20 +39,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="relative w-10 h-10">
-                <div className="absolute inset-0 bg-gradient-to-br from-green-500 to-green-700 rounded-full shadow-lg"></div>
-                <div className="absolute inset-[2px] bg-white rounded-full flex items-center justify-center">
-                  <span className="text-green-600 text-xl font-bold">Ç</span>
-                </div>
-              </div>
-              <span className="text-xl font-bold text-green-600 hidden sm:block">
-                Çatalca Rehberi
-              </span>
-              <span className="text-xl font-bold text-green-600 sm:hidden">
-                Çatalca Rehberi
-              </span>
-            </Link>
+            <Logo />
           </div>
 
           {/* Desktop Menu */}
