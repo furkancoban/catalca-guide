@@ -20,7 +20,10 @@ const nextConfig = {
       logDetail: true,
       memoryLimit: 4096,
     },
-    optimizeCss: true,
+    optimizeCss: {
+      enabled: true,
+      cssModules: true,
+    },
     forceSwcTransforms: true,
   },
   // Enable React strict mode for better development experience
@@ -63,6 +66,7 @@ const nextConfig = {
               test: /[\\/]node_modules[\\/]/,
               name: 'vendors',
               chunks: 'all',
+              priority: 20,
             },
             shared: {
               name(module, chunks) {
@@ -70,6 +74,7 @@ const nextConfig = {
               },
               minChunks: 2,
               reuseExistingChunk: true,
+              priority: 10,
             },
           },
         },
@@ -85,6 +90,14 @@ const nextConfig = {
   onDemandEntries: {
     maxInactiveAge: 60 * 60 * 1000,
     pagesBufferLength: 5,
+  },
+  // Error page handling
+  errorBoundary: {
+    errorComponent: true,
+    onError: (error, errorInfo) => {
+      console.error('Page Error:', error);
+      console.error('Error Info:', errorInfo);
+    }
   },
 };
 
