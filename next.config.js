@@ -13,7 +13,7 @@ const nextConfig = {
     unoptimized: true, // This is important for Netlify deployment
   },
   // Changed for Netlify compatibility
-  output: 'standalone',
+  output: 'export',
   reactStrictMode: true,
   // Enable production source maps for better debugging
   productionBrowserSourceMaps: true,
@@ -22,13 +22,6 @@ const nextConfig = {
   // Configure CSS handling
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
-  },
-  // Configure PostCSS for Tailwind
-  postcss: {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
-    },
   },
   // Configure webpack
   webpack: (config) => {

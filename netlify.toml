@@ -1,6 +1,6 @@
 [build]
-  command = "npm install && npm run build"
-  publish = ".next"
+  command = "npm run build"
+  publish = "out"
 
 [build.environment]
   NEXT_USE_NETLIFY_EDGE = "true"
@@ -71,9 +71,8 @@
 # Optimize redirects
 [[redirects]]
   from = "/*"
-  to = "/.netlify/functions/next_server"
+  to = "/index.html"
   status = 200
-  force = true
 
 # Cache API routes
 [[redirects]]
