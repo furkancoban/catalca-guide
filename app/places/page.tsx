@@ -51,7 +51,7 @@ export default function Places() {
             subtitle="Tarihi Mağaralar"
             rating="4.7/5"
             description="Roma döneminden kalma tarihi mağaralar. İçerisinde kilise ve yaşam alanları bulunuyor. Doğal ve tarihi güzelliği bir arada sunan özel bir mekan."
-            image="https://images.unsplash.com/photo-1499277323704-924d895cf7af?ixlib=rb-4.0.3"
+            image="https://images.unsplash.com/photo-1619266465172-02a857c3556d?ixlib=rb-4.0.3"
             imageAlt="İnceğiz Mağaraları"
             location="İnceğiz Köyü"
             latitude={41.1234}
