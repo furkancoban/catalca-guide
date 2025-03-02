@@ -1,116 +1,95 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FiMenu, FiX } from 'react-icons/fi';
 import Logo from './Logo';
 
-export default function Navbar() {
+interface MenuItem {
+  href: string;
+  label: string;
+}
+
+const menuItems: MenuItem[] = [
+  { href: '/', label: 'Ana Sayfa' },
+  { href: '/places', label: 'Gezilecek Yerler' },
+  { href: '/events', label: 'Etkinlikler' },
+  { href: '/restaurants', label: 'Restoranlar' },
+  { href: '/hotels', label: 'Oteller' },
+  { href: '/about', label: 'Hakkında' },
+  { href: '/contact', label: 'İletişim' },
+];
+
+const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
+  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      setScrolled(window.scrollY > 0);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const menuItems = [
-    { href: '/', label: 'Ana Sayfa' },
-    { href: '/places', label: 'Gezilecek Yerler' },
-    { href: '/restaurants', label: 'Restoranlar' },
-    { href: '/hotels', label: 'Oteller' },
-    { href: '/events', label: 'Etkinlikler' },
-    { href: '/about', label: 'Hakkında' },
-    { href: '/contact', label: 'İletişim' },
-  ];
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      scrolled ? 'bg-white/95 backdrop-blur-sm shadow-md' : 'bg-white/90'
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      scrolled ? 'bg-white shadow-md' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex-shrink-0 flex items-center">
-            <Logo />
-          </div>
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Logo isScrolled={scrolled} />
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex md:items-center md:space-x-4">
             {menuItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative px-3 py-2 text-base font-medium transition-all duration-300 group hover:text-green-600 ${
-                  pathname === item.href 
-                    ? 'text-green-600 font-semibold' 
-                    : 'text-gray-600'
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 relative group ${
+                  pathname === item.href
+                    ? scrolled
+                      ? 'text-green-600'
+                      : 'text-gray-800'
+                    : scrolled
+                    ? 'text-gray-600 hover:text-green-600'
+                    : 'text-gray-800 hover:text-green-700'
                 }`}
               >
-                <span className="relative z-10">{item.label}</span>
-                <span className={`absolute inset-0 bg-green-50 rounded-lg transform scale-95 opacity-0 transition-all duration-300 -z-0 ${
-                  pathname === item.href 
-                    ? 'opacity-100' 
-                    : 'group-hover:opacity-100'
-                }`}></span>
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-green-500 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
+                {item.label}
+                {pathname === item.href && (
+                  <motion.div
+                    layoutId="underline"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-current"
+                    initial={false}
+                  />
+                )}
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-current transform scale-x-0 group-hover:scale-x-100 transition-transform" />
               </Link>
             ))}
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden">
             <button
-              onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-lg text-gray-600 hover:text-green-600 hover:bg-green-50 focus:outline-none transition-all duration-300"
-              aria-expanded={isOpen}
+              onClick={() => setIsOpen(!isOpen)}
+              className={`p-2 rounded-md transition-colors duration-300 ${
+                scrolled ? 'text-gray-800 hover:text-gray-600' : 'text-gray-800 hover:text-gray-700'
+              }`}
+              aria-label="Toggle menu"
             >
-              <span className="sr-only">Open main menu</span>
-              <motion.div
-                animate={isOpen ? "open" : "closed"}
-                className="w-6 h-6 flex items-center justify-center"
-              >
-                {!isOpen ? (
-                  <svg
-                    className="block h-6 w-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
-                ) : (
-                  <svg
-                    className="block h-6 w-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                )}
-              </motion.div>
+              {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
             </button>
           </div>
         </div>
@@ -124,26 +103,20 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden bg-white/95 backdrop-blur-sm border-t border-gray-100 shadow-lg"
+            className="md:hidden bg-white/95 backdrop-blur-sm"
           >
-            <div className="px-4 py-3 space-y-2">
+            <div className="px-4 pt-2 pb-3 space-y-1">
               {menuItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`relative block px-4 py-3 text-base font-medium rounded-lg transition-all duration-300 group ${
+                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
                     pathname === item.href
-                      ? 'text-green-600 bg-green-50/80'
-                      : 'text-gray-600 hover:text-green-600 hover:bg-green-50/60'
+                      ? 'text-green-600 bg-green-50'
+                      : 'text-gray-800 hover:text-green-600 hover:bg-gray-50'
                   }`}
-                  onClick={() => setIsOpen(false)}
                 >
-                  <span className="relative z-10 flex items-center">
-                    {item.label}
-                    <span className="ml-auto transform transition-transform duration-300 group-hover:translate-x-1">
-                      →
-                    </span>
-                  </span>
+                  {item.label}
                 </Link>
               ))}
             </div>
@@ -152,4 +125,6 @@ export default function Navbar() {
       </AnimatePresence>
     </nav>
   );
-} 
+};
+
+export default Navbar; 

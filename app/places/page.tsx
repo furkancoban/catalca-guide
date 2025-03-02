@@ -50,6 +50,50 @@ export default function Places() {
               </>
             }
           />
+
+          <Card
+            title="İnceğiz Mağaraları"
+            subtitle="Tarihi Mağaralar"
+            rating="4.7/5"
+            description="Roma döneminden kalma tarihi mağara kompleksi. Kiliseler, mezar odaları ve tarihi fresklerle bezeli bu mağaralar, bölgenin en etkileyici tarihi mekanlarından."
+            image="https://images.unsplash.com/photo-1499244571948-7ccddb3583f1"
+            imageAlt="İnceğiz Mağaraları"
+            location="İnceğiz Köyü"
+            latitude={41.1234}
+            longitude={28.4789}
+            details={
+              <>
+                <p>📍 Konum: İnceğiz Köyü</p>
+                <p>⏰ Ziyaret Saatleri: 09:00-17:00</p>
+                <p>🎫 Giriş: ₺20</p>
+                <p>🎯 Öne Çıkan: Tarihi Freskler</p>
+                <p>🏺 Tarihi Dönem: Roma Dönemi</p>
+                <p>🚶‍♂️ Rehberli Tur: Mevcut</p>
+              </>
+            }
+          />
+
+          <Card
+            title="Fatih Camii"
+            subtitle="Tarihi Cami"
+            rating="4.9/5"
+            description="Osmanlı döneminden kalma tarihi cami. Geleneksel mimari özellikleri ve el işçiliğiyle bezeli iç mekanıyla görülmeye değer bir yapı."
+            image="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f"
+            imageAlt="Fatih Camii"
+            location="Çatalca Merkez"
+            latitude={41.1437}
+            longitude={28.4612}
+            details={
+              <>
+                <p>📍 Konum: Çatalca Merkez</p>
+                <p>⏰ Ziyaret Saatleri: Namaz vakitleri</p>
+                <p>🎫 Giriş: Ücretsiz</p>
+                <p>🎯 Öne Çıkan: Osmanlı Mimarisi</p>
+                <p>🕌 Yapım Yılı: 1800'ler</p>
+                <p>🏺 Tarihi Önemi: Yüksek</p>
+              </>
+            }
+          />
         </div>
       </section>
 
@@ -63,7 +107,7 @@ export default function Places() {
               subtitle="Plaj"
               rating="4.7"
               description="Karaburun'un kristal berraklığındaki sularında yüzme ve güneşlenme imkanı. Temiz plajı ve modern tesisleriyle ideal bir tatil noktası."
-              image="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+              image="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
               imageAlt="Karaburun Plajı"
               location="Karaburun, Çatalca"
               latitude={41.3484}
@@ -74,6 +118,8 @@ export default function Places() {
                   <p>🕒 En İyi Zaman: Haziran-Eylül</p>
                   <p>💰 Giriş: Ücretsiz</p>
                   <p>🎯 Öne Çıkan: Temiz Plaj</p>
+                  <p>🏊‍♂️ Yüzme İmkanı: Var</p>
+                  <p>🌊 Su Sporları: Mevcut</p>
                 </>
               }
             />
@@ -83,7 +129,7 @@ export default function Places() {
               subtitle="Göl"
               rating="4.6"
               description="Doğal güzellikleri ve zengin kuş çeşitliliğiyle ünlü Durusu Gölü, piknik ve doğa yürüyüşü için ideal bir mekan."
-              image="https://images.unsplash.com/photo-1439066615861-d1af74d74000?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+              image="https://images.unsplash.com/photo-1439066615861-d1af74d74000"
               imageAlt="Durusu Gölü"
               location="Durusu, Çatalca"
               latitude={41.3156}
@@ -94,6 +140,8 @@ export default function Places() {
                   <p>🕒 En İyi Zaman: Tüm Yıl</p>
                   <p>💰 Giriş: Ücretsiz</p>
                   <p>🎯 Öne Çıkan: Kuş Gözlemi</p>
+                  <p>🚶‍♂️ Yürüyüş Parkuru: Var</p>
+                  <p>🍖 Piknik Alanı: Mevcut</p>
                 </>
               }
             />
@@ -103,7 +151,7 @@ export default function Places() {
               subtitle="Doğa"
               rating="4.8"
               description="Yemyeşil ormanları ve temiz havasıyla doğa yürüyüşü, kamp ve piknik için mükemmel bir seçenek."
-              image="https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+              image="https://images.unsplash.com/photo-1448375240586-882707db888b"
               imageAlt="Çatalca Ormanları"
               location="Çatalca"
               latitude={41.1433}
@@ -114,6 +162,30 @@ export default function Places() {
                   <p>🕒 En İyi Zaman: İlkbahar-Sonbahar</p>
                   <p>💰 Giriş: Ücretsiz</p>
                   <p>🎯 Öne Çıkan: Doğa Yürüyüşü</p>
+                  <p>⛺ Kamp Alanı: Mevcut</p>
+                  <p>🌿 Flora Çeşitliliği: Yüksek</p>
+                </>
+              }
+            />
+
+            <Card
+              title="Yalıköy Sahili"
+              subtitle="Sahil"
+              rating="4.7"
+              description="Karadeniz'in muhteşem manzarasına sahip sahil şeridi. Balık tutma, yürüyüş ve günbatımı izleme imkanı sunan doğal bir güzellik."
+              image="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+              imageAlt="Yalıköy Sahili"
+              location="Yalıköy, Çatalca"
+              latitude={41.2456}
+              longitude={28.5678}
+              details={
+                <>
+                  <p>📍 Konum: Yalıköy</p>
+                  <p>🕒 En İyi Zaman: Yaz-Sonbahar</p>
+                  <p>💰 Giriş: Ücretsiz</p>
+                  <p>🎯 Öne Çıkan: Balık Tutma</p>
+                  <p>🌅 Günbatımı Manzarası: Var</p>
+                  <p>🎣 Balıkçılık: Mümkün</p>
                 </>
               }
             />
@@ -142,6 +214,7 @@ export default function Places() {
                 <p>🎫 Giriş: ₺15</p>
                 <p>🎯 Öne Çıkan: Tarihi Eserler</p>
                 <p>📱 İletişim: (0212) XXX XX XX</p>
+                <p>🎪 Özel Sergiler: Düzenli</p>
               </>
             }
           />
@@ -163,6 +236,51 @@ export default function Places() {
                 <p>📸 Önerilen: Fotoğraf Turu, Yürüyüş</p>
                 <p>🎯 Öne Çıkan: Osmanlı Mimarisi</p>
                 <p>🚶‍♂️ Yürüyüş Süresi: ~2 saat</p>
+                <p>🏺 Tarihi Evler: Çok sayıda</p>
+              </>
+            }
+          />
+
+          <Card
+            title="Çatalca Kültür Merkezi"
+            subtitle="Kültür Merkezi"
+            rating="4.8/5"
+            description="Modern bir kompleks içinde tiyatro, sergi ve konser salonları. Düzenli kültürel etkinlikler ve workshoplar düzenleniyor."
+            image="https://images.unsplash.com/photo-1499364615650-ec38552f4f34"
+            imageAlt="Çatalca Kültür Merkezi"
+            location="Çatalca Merkez"
+            latitude={41.1439}
+            longitude={28.4597}
+            details={
+              <>
+                <p>📍 Konum: Çatalca Merkez</p>
+                <p>⏰ Çalışma Saatleri: 10:00-22:00</p>
+                <p>🎭 Etkinlikler: Düzenli</p>
+                <p>🎯 Öne Çıkan: Kültürel Aktiviteler</p>
+                <p>🎪 Sergi Salonu: Mevcut</p>
+                <p>🎵 Konser Salonu: 500 kişilik</p>
+              </>
+            }
+          />
+
+          <Card
+            title="Ferhatpaşa Çiftliği"
+            subtitle="Tarihi Çiftlik"
+            rating="4.5/5"
+            description="Osmanlı döneminden kalma tarihi çiftlik yapısı. Geniş bahçesi ve restore edilmiş binalarıyla kültür ve doğayı birleştiriyor."
+            image="https://images.unsplash.com/photo-1500382017468-9049fed747ef"
+            imageAlt="Ferhatpaşa Çiftliği"
+            location="Ferhatpaşa, Çatalca"
+            latitude={41.1242}
+            longitude={28.4789}
+            details={
+              <>
+                <p>📍 Konum: Ferhatpaşa</p>
+                <p>⏰ Ziyaret Saatleri: 09:00-18:00</p>
+                <p>🎫 Giriş: ₺10</p>
+                <p>🎯 Öne Çıkan: Tarihi Yapı</p>
+                <p>🌳 Bahçe Alanı: Geniş</p>
+                <p>☕ Kafe: Mevcut</p>
               </>
             }
           />

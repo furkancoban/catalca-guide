@@ -199,7 +199,7 @@ export default function WeatherWidget() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl shadow-md overflow-hidden"
           >
-            <div className="grid grid-cols-1 md:grid-cols-5 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-0 divide-y md:divide-y-0 md:divide-x divide-gray-100">
               {/* Current Weather */}
               <div className="p-6 md:col-span-2">
                 <div className="flex items-center gap-4 mb-4">
@@ -208,20 +208,20 @@ export default function WeatherWidget() {
                 </div>
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <div className="text-4xl font-bold text-gray-900 mb-1">{weather.current.temp}°C</div>
-                    <p className="text-gray-600">{weatherConditions[weather.current.condition]}</p>
+                    <div className="text-4xl sm:text-5xl font-bold text-gray-900 mb-1">{weather.current.temp}°C</div>
+                    <p className="text-lg text-gray-600">{weatherConditions[weather.current.condition]}</p>
                   </div>
                   <div className="p-4 bg-white/80 rounded-lg">
                     {getWeatherIcon(weather.current.condition)}
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-4 pt-4 border-t border-gray-100">
-                  <div className="text-center">
-                    <p className="text-sm text-gray-500">Nem</p>
+                  <div className="text-center p-3 bg-white/60 rounded-lg">
+                    <p className="text-sm text-gray-500 mb-1">Nem</p>
                     <p className="text-lg font-medium text-gray-900">{weather.current.humidity}%</p>
                   </div>
-                  <div className="text-center">
-                    <p className="text-sm text-gray-500">Rüzgar</p>
+                  <div className="text-center p-3 bg-white/60 rounded-lg">
+                    <p className="text-sm text-gray-500 mb-1">Rüzgar</p>
                     <p className="text-lg font-medium text-gray-900">{weather.current.windSpeed} km/s</p>
                   </div>
                 </div>
@@ -230,7 +230,7 @@ export default function WeatherWidget() {
               {/* Forecast */}
               <div className="p-6 md:col-span-3">
                 <h4 className="text-sm font-medium text-gray-600 mb-4">4 Günlük Tahmin</h4>
-                <div className="grid grid-cols-4 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                   {weather.forecast.map((day, index) => (
                     <div 
                       key={index} 

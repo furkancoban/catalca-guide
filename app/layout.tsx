@@ -7,8 +7,16 @@ import Footer from './components/Footer';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Çatalca Guide',
-  description: 'Çatalca\'nın tarihi ve doğal güzelliklerini keşfedin.',
+  title: 'Çatalca - Tarih ve Doğa',
+  description: 'Çatalca\'nın tarihi ve doğal güzellikleri',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+    minimumScale: 1,
+    viewportFit: 'cover',
+  },
+  themeColor: '#ffffff',
 };
 
 export default function RootLayout({
@@ -17,15 +25,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="tr">
-      <body className={inter.className}>
-        <div className="min-h-screen flex flex-col">
-          <Navbar />
-          <main className="flex-grow">
+    <html lang="tr" className="scroll-smooth">
+      <body className={`${inter.className} antialiased min-h-screen flex flex-col`}>
+        <Navbar />
+        <main className="flex-grow pt-16 overflow-x-hidden">
+          <div className="container-fluid">
             {children}
-          </main>
-          <Footer />
-        </div>
+          </div>
+        </main>
+        <Footer />
       </body>
     </html>
   );

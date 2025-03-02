@@ -3,26 +3,36 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: #ffffff;
-    --foreground: #171717;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --background: #0a0a0a;
-      --foreground: #ededed;
-    }
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    font-synthesis: none;
   }
 
   body {
-    @apply bg-background text-foreground min-h-screen;
+    @apply min-h-screen bg-gray-50 text-gray-900 antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
 
 @layer components {
   .clip-path-c {
     clip-path: path('M 50 0 A 50 50 0 1 1 50 100 A 50 50 0 1 1 50 0 L 50 20 A 30 30 0 1 0 50 80 A 30 30 0 1 0 50 20');
+  }
+
+  .container-fluid {
+    @apply w-full max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8;
+    min-width: min-content;
+  }
+
+  .content-wrapper {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    min-width: min-content;
+  }
+
+  .text-content {
+    @apply max-w-prose mx-auto;
+    min-width: min-content;
   }
 }
 
@@ -36,5 +46,82 @@
 
   .animate-scroll-down {
     animation: scroll-down 2s infinite;
+  }
+
+  .zoom-friendly {
+    min-width: min-content;
+    width: fit-content;
+    max-width: 100%;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+/* Modern scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400;
+}
+
+/* Responsive typography */
+@media screen and (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 641px) and (max-width: 1024px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* Ensure minimum tap target size */
+@media (pointer: coarse) {
+  button, 
+  [role="button"],
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
   }
 }

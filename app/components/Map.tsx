@@ -221,75 +221,54 @@ const Map: React.FC = () => {
   };
 
   return (
-    <div className="h-[500px] w-full relative rounded-xl overflow-hidden shadow-lg">
-      <MapContainer
-        center={[41.1436, 28.4601]}
-        zoom={15.5}
-        style={{ height: '100%', width: '100%' }}
-        zoomControl={false} // We'll add it in a custom position
-      >
-        {/* Modern map style */}
-        <TileLayer
-          url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-        />
-        
-        {/* Custom position for zoom control */}
-        <ZoomControl position="bottomright" />
+    <div className="h-[520px] w-full relative rounded-xl overflow-hidden shadow-lg border-4 border-green-600">
+      <div className="absolute inset-[4px]">
+        <MapContainer
+          center={[41.1436, 28.4601]}
+          zoom={15.5}
+          style={{ height: '100%', width: '100%' }}
+          zoomControl={false} // We'll add it in a custom position
+        >
+          {/* Modern map style */}
+          <TileLayer
+            url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+          />
+          
+          {/* Custom position for zoom control */}
+          <ZoomControl position="bottomright" />
 
-        {points.map((point, index) => (
-          <React.Fragment key={index}>
-            {/* Circular area of influence */}
-            {point.radius && (
-              <Circle
-                center={point.position}
-                radius={point.radius}
-                pathOptions={{
-                  ...getCircleColor(point.type),
-                  fillOpacity: 0.1,
-                  weight: 1,
-                  opacity: 0.5
-                }}
-              />
-            )}
-            
-            {/* Location marker */}
-            <Marker 
-              position={point.position}
-              icon={icons[point.type]}
-            >
-              <Popup className="modern-popup">
-                <div className="p-3 -mx-3 -mt-3 bg-gradient-to-r from-gray-100 to-gray-50 border-b mb-2">
-                  <h3 className="font-semibold text-lg text-gray-800">{point.name}</h3>
-                </div>
-                <p className="text-gray-600 text-sm leading-relaxed">{point.description}</p>
-              </Popup>
-            </Marker>
-          </React.Fragment>
-        ))}
-      </MapContainer>
-
-      {/* Legend */}
-      <div className="absolute bottom-5 left-5 bg-white/90 backdrop-blur-sm p-3 rounded-lg shadow-lg z-[1000] text-sm">
-        <h4 className="font-semibold mb-2 text-gray-800">Harita Göstergeleri</h4>
-        <div className="space-y-1">
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-violet-500"></div>
-            <span className="text-gray-700">Tarihi Yerler</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-            <span className="text-gray-700">Gezilecek Yerler</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-red-500"></div>
-            <span className="text-gray-700">Restoranlar</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-blue-500"></div>
-            <span className="text-gray-700">Oteller</span>
-          </div>
-        </div>
+          {points.map((point, index) => (
+            <React.Fragment key={index}>
+              {/* Circular area of influence */}
+              {point.radius && (
+                <Circle
+                  center={point.position}
+                  radius={point.radius}
+                  pathOptions={{
+                    ...getCircleColor(point.type),
+                    fillOpacity: 0.1,
+                    weight: 1,
+                    opacity: 0.5
+                  }}
+                />
+              )}
+              
+              {/* Location marker */}
+              <Marker 
+                position={point.position}
+                icon={icons[point.type]}
+              >
+                <Popup className="modern-popup">
+                  <div className="p-3 -mx-3 -mt-3 bg-gradient-to-r from-gray-100 to-gray-50 border-b mb-2">
+                    <h3 className="font-semibold text-lg text-gray-800">{point.name}</h3>
+                  </div>
+                  <p className="text-gray-600 text-sm leading-relaxed">{point.description}</p>
+                </Popup>
+              </Marker>
+            </React.Fragment>
+          ))}
+        </MapContainer>
       </div>
     </div>
   );
